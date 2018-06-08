@@ -28,10 +28,13 @@ class CauseListFragment : Fragment() {
             layoutManager = LinearLayoutManager(this@CauseListFragment.activity)
             adapter = CauseAdapter(mutableListOf(
                     CauseResponseModel("Test name", "Test description", true, true, "logo url1", "category1", emptyList()),
+                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
+                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
+                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
+                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
                     CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList())
             ))
         }
-
     }
 
     class CauseAdapter(val causes : List<CauseResponseModel> ) :
@@ -63,5 +66,4 @@ class CauseListFragment : Fragment() {
 
         override fun getItemCount() = causes.size
     }
-
 }

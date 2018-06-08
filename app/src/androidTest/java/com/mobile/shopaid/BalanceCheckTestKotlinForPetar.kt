@@ -3,11 +3,15 @@ package com.mobile.shopaid
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.action.ViewActions.typeText
+import android.support.test.espresso.contrib.RecyclerViewActions
+import android.support.test.espresso.matcher.ViewMatchers
+import android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import com.mobile.shopaid.ui.activity.splash.SplashActivity
+import com.mobile.shopaid.ui.fragment.CauseListFragment
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.junit.Test
@@ -29,9 +33,12 @@ class BalanceCheckTestKotlinForPetar {
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
         onView(allOf<View>(withId(R.id.iban_next))).perform(click())
         onView(allOf<View>(withId(R.id.cause_local))).perform(click())
+        onView(allOf(ViewMatchers.withId(R.id.cause_recyclerview), isCompletelyDisplayed())).perform(
+                RecyclerViewActions.actionOnItemAtPosition<CauseListFragment.CauseAdapter.ViewHolder>(5, click()))
+
         Thread.sleep(2000)
-        onView(allOf<View>(withId(R.id.cause_international))).perform(click())
-        onView(allOf<View>(withId(R.id.cause_local))).perform(click())
+//        onView(allOf<View>(withId(R.id.cause_international))).perform(click())
+//        onView(allOf<View>(withId(R.id.cause_local))).perform(click())
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())
         Thread.sleep(2000)
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
