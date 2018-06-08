@@ -14,7 +14,7 @@ class StoresInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_stores_info)
 
         stores_info_next.setOnClickListener({
-            startActivity(Intent(this, BalanceActivity::class.java))
+            startActivity(Intent(this, RegistrationCompleteActivity::class.java))
         })
     }
 }

@@ -47,6 +47,10 @@
             android:name=".ui.activity.BalanceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".ui.activity.RegistrationCompleteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

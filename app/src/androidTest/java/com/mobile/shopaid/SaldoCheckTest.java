@@ -30,5 +30,6 @@ public class SaldoCheckTest {
         onView(allOf(withId(R.id.iban_skip))).perform(click());
         onView(allOf(withId(R.id.partners_next))).perform(click());
         onView(allOf(withId(R.id.stores_info_next))).perform(click());
+        onView(allOf(withId(R.id.registration_complete_next))).perform(click());
     }
 }
