@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.response.CauseResponseModel
@@ -37,8 +38,10 @@ class CauseListFragment : Fragment() {
             RecyclerView.Adapter<CauseAdapter.ViewHolder>() {
 
         class ViewHolder(root: ViewGroup) : RecyclerView.ViewHolder(root) {
-            var name = root.findViewById(R.id.cause_name) as TextView
-            var description = root.findViewById(R.id.cause_description) as TextView
+            var name = root.findViewById(R.id.cause_item_name) as TextView
+            var description = root.findViewById(R.id.cause_item_description) as TextView
+            var checkbox = root.findViewById(R.id.cause_item_checkbox) as CheckBox
+            var category = root.findViewById(R.id.cause_item_category) as TextView
         }
 
         override fun onCreateViewHolder(parent: ViewGroup,
@@ -54,6 +57,8 @@ class CauseListFragment : Fragment() {
             causes.get(position)
             holder.name.text = causes.get(position).name
             holder.description.text = causes.get(position).description
+            holder.category.text = causes.get(position).description
+
         }
 
         override fun getItemCount() = causes.size
