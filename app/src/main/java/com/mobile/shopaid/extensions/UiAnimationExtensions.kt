@@ -15,7 +15,6 @@ import android.view.animation.AccelerateDecelerateInterpolator
 
 fun View.animateView(vararg args: ObjectAnimator, block: () -> Unit = {}) {
     val animatorSet = AnimatorSet()
-    animatorSet.interpolator = AccelerateDecelerateInterpolator()
     animatorSet.playSequentially(args.asList())
 
     animatorSet.addListener(object : AnimatorListenerAdapter() {

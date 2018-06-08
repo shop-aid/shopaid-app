@@ -1,8 +1,10 @@
-package com.mobile.shopaid
+package com.mobile.shopaid.ui.splash
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.mobile.shopaid.R
 import com.mobile.shopaid.extensions.*
+import com.mobile.shopaid.ui.entry.EntryInfoActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
