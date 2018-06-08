@@ -4,6 +4,7 @@ import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.CausesRepo
@@ -20,9 +21,9 @@ import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 class CausesViewModel(private val causesRepo: CausesRepo) : ViewModel(), CausesViewModelContract {
 
     companion object {
-        fun create(activity: AppCompatActivity): CausesViewModel {
+        fun create(fragment: Fragment): CausesViewModel {
             val factory = ViewModelFactory(CausesViewModel(CausesRepoImpl()))
-            return ViewModelProviders.of(activity, factory).get(CausesViewModel::class.java)
+            return ViewModelProviders.of(fragment, factory).get(CausesViewModel::class.java)
         }
     }
 

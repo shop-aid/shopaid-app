@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <!--
-    val name: String,
-        val description: String,
-        val local: Boolean,
-        val favorite: Boolean
-    -->
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <CheckBox
         android:id="@+id/cause_item_checkbox"
@@ -21,16 +15,8 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/cause_item_description"
+        android:id="@+id/causeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/cause_item_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
 
 </LinearLayout>
