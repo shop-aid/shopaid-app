@@ -2,9 +2,14 @@ package com.mobile.shopaid.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import kotlinx.android.synthetic.main.activity_cause.*
+import android.support.v4.app.FragmentStatePagerAdapter
+import com.mobile.shopaid.ui.fragment.CauseListFragment
+
 
 class CauseActivity : AppCompatActivity() {
 
@@ -12,8 +17,23 @@ class CauseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_cause)
-        partners_next.setOnClickListener({
+
+        cause_viewpager.adapter = CausePagerAdapter(supportFragmentManager)
+
+        cause_next.setOnClickListener({
             startActivity(Intent(this, PartnersActivity::class.java))
         })
     }
+
+    private inner class CausePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+
+        override fun getItem(position: Int): Fragment {
+            return CauseListFragment()
+        }
+
+        override fun getCount(): Int {
+            return 2
+        }
+    }
+
 }

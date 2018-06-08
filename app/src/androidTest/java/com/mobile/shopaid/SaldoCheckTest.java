@@ -31,7 +31,10 @@ public class SaldoCheckTest {
         onView(allOf(withId(R.id.login_sign_in_button))).perform(click());
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"));
         onView(allOf(withId(R.id.iban_next))).perform(click());
-        onView(allOf(withId(R.id.partners_next))).perform(click());
+        onView(allOf(withId(R.id.cause_local))).perform(click());
+        onView(allOf(withId(R.id.cause_international))).perform(click());
+        onView(allOf(withId(R.id.cause_local))).perform(click());
+        onView(allOf(withId(R.id.cause_next))).perform(click());
         onView(allOf(withId(R.id.stores_info_next))).perform(click());
         onView(allOf(withId(R.id.registration_complete_next))).perform(click());
     }
