@@ -1,11 +1,14 @@
 package com.mobile.shopaid.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import com.mobile.shopaid.R
 import kotlinx.android.synthetic.main.activity_partners.*
 
@@ -16,31 +19,38 @@ class PartnersActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_partners)
 
-        stores_info_next.setOnClickListener({
+        partners_recyclerview.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@PartnersActivity)
+            adapter = PartnersAdapter(ArrayList(), this@PartnersActivity)
+        }
+
+        partners_info_next.setOnClickListener({
             startActivity(Intent(this, RegistrationCompleteActivity::class.java))
         })
 
-//        stores_recyclerview.adapter
     }
 
-    class StoresAdapter : BaseAdapter() {
+    class PartnersAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
 
-        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        // Gets the number of animals in the list
+        override fun getItemCount(): Int {
+            return 15
         }
 
-        override fun getItem(p0: Int): Any {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(LayoutInflater.from(context).inflate(R.layout.partner_list_row, parent, false))
         }
 
-        override fun getItemId(p0: Int): Long {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//            holder?.tvAnimalType?.text = items.get(position)
         }
+    }
 
-        override fun getCount(): Int {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
+    class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+        // Holds the TextView that will add each animal to
+//        val tvAnimalType = view.tv_animal_type
     }
 
 }

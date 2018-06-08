@@ -16,14 +16,14 @@
             android:text="The following 7321 stores joined shopaid"/>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/stores_recyclerview"
+            android:id="@+id/partners_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/stores_info_next"
+        android:id="@+id/partners_info_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next"/>
