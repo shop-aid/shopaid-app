@@ -1,4 +1,4 @@
-package com.mobile.shopaid.ui.entry
+package com.mobile.shopaid.ui.activity.entry
 
 import android.content.Context
 import android.content.Intent
