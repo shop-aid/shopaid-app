@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_normal">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <include layout="@layout/layout_entry_info_content" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/entryInfoNextButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/spacing_normal"
+        android:background="@color/colorPrimary"
+        android:text="@string/text_get_started"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/entryInfoHeaderView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing_huge"
+        android:layout_marginTop="@dimen/spacing_big"
+        android:layout_weight="1"
+        android:text="Some big text that explains a lot about this screen and what you should do next!"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_gigantic" />
+
+    <TextView
+        android:id="@+id/entryInfoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Other text that explains what you should do next and bla bla bla stuff about this app dude!"
+        android:textSize="@dimen/text_big" />
+
+</LinearLayout>
