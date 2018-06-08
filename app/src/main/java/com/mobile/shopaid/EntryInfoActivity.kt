@@ -29,15 +29,15 @@ class EntryInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entry_info)
 
-        with(entryInfoHeaderView) {
+        entryInfoHeaderView.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))
         }
 
-        with(entryInfoView) {
+        entryInfoView.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))
         }
 
-        with(entryInfoNextButton) {
+        entryInfoNextButton.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))
         }
     }
