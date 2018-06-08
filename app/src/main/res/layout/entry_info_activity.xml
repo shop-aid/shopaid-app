@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <include layout="@layout/layout_entry_info_content" />
+        <include layout="@layout/entry_info_content_layout" />
 
     </ScrollView>
 

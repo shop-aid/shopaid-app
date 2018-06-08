@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import com.mobile.shopaid.extensions.*
 import com.mobile.shopaid.ui.activity.entry.EntryInfoActivity
-import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.splash_activity.*
 
 class SplashActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(R.layout.splash_activity)
 
         with(splashTextView) {
             animateView(getFadeInAnimator(DELAY_ANIMATION), getFadeOutAnimator(DELAY_ANIMATION)) {

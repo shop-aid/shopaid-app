@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
-import kotlinx.android.synthetic.main.activity_cause.*
+import kotlinx.android.synthetic.main.cause_activity.*
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.mobile.shopaid.ui.fragment.CauseListFragment
 
@@ -16,7 +16,7 @@ class CauseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_cause)
+        setContentView(R.layout.cause_activity)
 
         cause_viewpager.adapter = CausePagerAdapter(supportFragmentManager)
 

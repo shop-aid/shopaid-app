@@ -10,14 +10,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
-import kotlinx.android.synthetic.main.activity_partners.*
+import kotlinx.android.synthetic.main.partners_activity.*
 
 class PartnersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_partners)
+        setContentView(R.layout.partners_activity)
 
         partners_recyclerview.apply {
             setHasFixedSize(true)

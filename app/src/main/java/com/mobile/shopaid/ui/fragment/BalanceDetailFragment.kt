@@ -11,7 +11,7 @@ import com.mobile.shopaid.R
 class BalanceDetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_balance_detail, container, false)
+        return inflater.inflate(R.layout.balance_detail_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

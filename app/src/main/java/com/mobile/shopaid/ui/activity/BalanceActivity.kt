@@ -8,14 +8,14 @@ import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
-import kotlinx.android.synthetic.main.activity_balance.*
+import kotlinx.android.synthetic.main.balance_activity.*
 
 class BalanceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_balance)
+        setContentView(R.layout.balance_activity)
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
 
         balance_overview_tab.setOnClickListener({

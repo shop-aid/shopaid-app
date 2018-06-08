@@ -8,8 +8,8 @@ import com.mobile.shopaid.R
 import com.mobile.shopaid.ui.activity.LoginActivity
 import com.mobile.shopaid.extensions.animateView
 import com.mobile.shopaid.extensions.getFadeInAnimator
-import kotlinx.android.synthetic.main.activity_entry_info.*
-import kotlinx.android.synthetic.main.layout_entry_info_content.*
+import kotlinx.android.synthetic.main.entry_info_activity.*
+import kotlinx.android.synthetic.main.entry_info_content_layout.*
 
 /**
  * Created by: Petar Anastasov
@@ -29,7 +29,7 @@ class EntryInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entry_info)
+        setContentView(R.layout.entry_info_activity)
 
         entryInfoHeaderView.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))

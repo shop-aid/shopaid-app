@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
-import kotlinx.android.synthetic.main.fragment_cause_list.*
+import kotlinx.android.synthetic.main.cause_list_fragment.*
 
 
 class CauseListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_cause_list, container, false)
+        return inflater.inflate(R.layout.cause_list_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
