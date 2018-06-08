@@ -45,8 +45,7 @@ class PartnersActivity : AppCompatActivity() {
             fun bindData(partner: PartnerResponseModel) {
                 Picasso.get()
                         .load("https://i1.wp.com/beattips2.com/b2images/JSDG_Beats.jpg?zoom=2&resize=702%2C440")
-//                        .resize(50, 50)
-                        .centerCrop()
+                        .fit()
                         .into(itemView.partner_logo)
 
 

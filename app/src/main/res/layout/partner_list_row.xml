@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/partner_logo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView

@@ -40,7 +40,7 @@ class BalanceCheckTestKotlinForPetar {
 //        onView(allOf<View>(withId(R.id.cause_international))).perform(click())
 //        onView(allOf<View>(withId(R.id.cause_local))).perform(click())
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())
-        Thread.sleep(2000)
+        Thread.sleep(5000)
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
         onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
 
