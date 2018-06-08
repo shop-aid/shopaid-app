@@ -27,6 +27,22 @@
             android:name="com.mobile.shopaid.ui.activity.entry.EntryInfoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".PartnersActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".StoresInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".BalanceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

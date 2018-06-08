@@ -41,5 +41,7 @@ class EntryInfoActivity : AppCompatActivity() {
         entryInfoNextButton.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))
         }
+
+        entryInfoNextButton.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
     }
 }
