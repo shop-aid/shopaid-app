@@ -3,11 +3,11 @@ package com.mobile.shopaid.ui.activity.entry
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import com.mobile.shopaid.ui.activity.LoginActivity
 import com.mobile.shopaid.extensions.animateView
 import com.mobile.shopaid.extensions.getFadeInAnimator
+import com.mobile.shopaid.ui.activity.BaseActivity
 import kotlinx.android.synthetic.main.entry_info_activity.*
 import kotlinx.android.synthetic.main.entry_info_content_layout.*
 
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.entry_info_content_layout.*
  * At: 09:41
  */
 
-class EntryInfoActivity : AppCompatActivity() {
+class EntryInfoActivity : BaseActivity() {
 
     companion object {
         private const val DELAY_ANIMATION = 1500L

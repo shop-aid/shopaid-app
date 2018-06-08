@@ -1,13 +1,13 @@
 package com.mobile.shopaid.ui.activity.splash
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import com.mobile.shopaid.extensions.*
+import com.mobile.shopaid.ui.activity.BaseActivity
 import com.mobile.shopaid.ui.activity.entry.EntryInfoActivity
 import kotlinx.android.synthetic.main.splash_activity.*
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     companion object {
         private const val DELAY_ANIMATION = 1000L

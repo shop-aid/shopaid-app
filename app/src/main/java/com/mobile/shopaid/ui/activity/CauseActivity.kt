@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
 import kotlinx.android.synthetic.main.cause_activity.*
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.mobile.shopaid.ui.fragment.CauseListFragment
 
 
-class CauseActivity : AppCompatActivity() {
+class CauseActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

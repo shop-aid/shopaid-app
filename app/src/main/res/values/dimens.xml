@@ -8,7 +8,7 @@
 
     <!-- button dimens -->
     <dimen name="button_width">100dp</dimen>
-    <dimen name="button_height">60dp</dimen>
+    <dimen name="button_height">50dp</dimen>
 
     <!-- text dimens -->
     <dimen name="text_tiny">12sp</dimen>

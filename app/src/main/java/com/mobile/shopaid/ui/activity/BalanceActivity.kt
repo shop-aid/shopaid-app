@@ -10,7 +10,7 @@ import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
 import kotlinx.android.synthetic.main.balance_activity.*
 
-class BalanceActivity : AppCompatActivity() {
+class BalanceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

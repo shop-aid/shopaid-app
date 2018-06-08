@@ -1,9 +1,7 @@
 package com.mobile.shopaid.ui.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -15,7 +13,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.partner_list_row.view.*
 import kotlinx.android.synthetic.main.partners_activity.*
 
-class PartnersActivity : AppCompatActivity() {
+class PartnersActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
