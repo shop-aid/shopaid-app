@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_big"
     android:orientation="vertical">
 
     <TextView
@@ -9,9 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/spacing_huge"
-        android:layout_marginTop="@dimen/spacing_big"
         android:layout_weight="1"
-        android:text="Some big text that explains a lot about this screen and what you should do next!"
+        android:text="Support the charity of your choice for free by shopping online."
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_gigantic" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/entryInfoView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Other text that explains what you should do next and bla bla bla stuff about this app dude!"
+        android:text="Doesn't cost you extra, the webshop will donate a part of the sales to charity."
         android:textSize="@dimen/text_big" />
 
 </LinearLayout>

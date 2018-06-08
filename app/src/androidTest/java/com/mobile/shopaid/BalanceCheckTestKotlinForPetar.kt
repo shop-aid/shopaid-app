@@ -10,7 +10,7 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
-import com.mobile.shopaid.ui.activity.splash.SplashActivity
+import com.mobile.shopaid.ui.activity.SplashActivity
 import com.mobile.shopaid.ui.fragment.CauseListFragment
 import junit.framework.Assert.assertTrue
 import org.hamcrest.CoreMatchers.allOf

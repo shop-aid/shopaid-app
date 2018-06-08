@@ -1,13 +1,11 @@
-package com.mobile.shopaid.ui.activity.entry
+package com.mobile.shopaid.ui.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.mobile.shopaid.R
-import com.mobile.shopaid.ui.activity.LoginActivity
 import com.mobile.shopaid.extensions.animateView
 import com.mobile.shopaid.extensions.getFadeInAnimator
-import com.mobile.shopaid.ui.activity.BaseActivity
 import kotlinx.android.synthetic.main.entry_info_activity.*
 import kotlinx.android.synthetic.main.entry_info_content_layout.*
 
