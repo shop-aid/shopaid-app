@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class SaldoCheckTest {
+public class BalanceCheckTest {
 
     @Rule
     public ActivityTestRule<SplashActivity> mActivityTestRule = new ActivityTestRule<>(SplashActivity.class);
@@ -32,12 +32,18 @@ public class SaldoCheckTest {
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"));
         onView(allOf(withId(R.id.iban_next))).perform(click());
         onView(allOf(withId(R.id.cause_local))).perform(click());
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         onView(allOf(withId(R.id.cause_international))).perform(click());
         onView(allOf(withId(R.id.cause_local))).perform(click());
         onView(allOf(withId(R.id.cause_next))).perform(click());
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         onView(allOf(withId(R.id.partners_info_next))).perform(click());
         onView(allOf(withId(R.id.registration_complete_next))).perform(click());
+
+        // switch between tabs on balance page
+        Thread.sleep(2000);
+        onView(allOf(withId(R.id.balance_detail_tab))).perform(click());
+        Thread.sleep(2000);
+        onView(allOf(withId(R.id.balance_overview_tab))).perform(click());
     }
 }
