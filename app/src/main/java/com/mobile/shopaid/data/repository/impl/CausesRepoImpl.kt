@@ -1,11 +1,12 @@
-package com.mobile.shopaid.data.repository
+package com.mobile.shopaid.data.repository.impl
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import com.mobile.shopaid.api.client.RetrofitClient
 import com.mobile.shopaid.api.service.CausesService
-import com.mobile.shopaid.data.CauseResponseModel
+import com.mobile.shopaid.data.response.CauseResponseModel
 import com.mobile.shopaid.data.observable.ObservableResult
+import com.mobile.shopaid.data.repository.CausesRepo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,11 +20,11 @@ import retrofit2.Response
 class CausesRepoImpl : CausesRepo {
 
     private val causesService = RetrofitClient.retrofit.create(CausesService::class.java)
-    private val causesObservable: MutableLiveData<ObservableResult<List<CauseResponseModel>>> by lazy {
+    private val causesObservable by lazy {
         MutableLiveData<ObservableResult<List<CauseResponseModel>>>()
     }
 
-    override fun fetchCauses() {
+    override fun fetchCauses(): LiveData<ObservableResult<List<CauseResponseModel>>> {
         causesService.causes.enqueue(object : Callback<List<CauseResponseModel>> {
             override fun onResponse(call: Call<List<CauseResponseModel>>?, response: Response<List<CauseResponseModel>>?) {
                 val result = response?.body()
@@ -35,9 +36,6 @@ class CausesRepoImpl : CausesRepo {
                 causesObservable.postValue(ObservableResult.Error(Exception(t)))
             }
         })
-    }
-
-    override fun getCausesObservable(): LiveData<ObservableResult<List<CauseResponseModel>>> {
         return causesObservable
     }
 }

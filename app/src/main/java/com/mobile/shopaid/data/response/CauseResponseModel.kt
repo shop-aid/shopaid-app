@@ -1,4 +1,4 @@
-package com.mobile.shopaid.data
+package com.mobile.shopaid.data.response
 
 /**
  * Created by: Petar Anastasov
