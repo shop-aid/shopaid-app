@@ -36,11 +36,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.activity.PartnersActivity"
+            android:name=".ui.activity.CauseActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.activity.StoresInfoActivity"
+            android:name=".ui.activity.PartnersActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity

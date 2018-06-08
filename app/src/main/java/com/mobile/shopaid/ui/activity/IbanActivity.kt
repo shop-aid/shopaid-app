@@ -13,8 +13,8 @@ class IbanActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_iban)
 
-        iban_next.setOnClickListener { startActivity(Intent(this, PartnersActivity::class.java))}
-        iban_skip.setOnClickListener { startActivity(Intent(this, PartnersActivity::class.java))}
+        iban_next.setOnClickListener { startActivity(Intent(this, CauseActivity::class.java))}
+        iban_skip.setOnClickListener { startActivity(Intent(this, CauseActivity::class.java))}
     }
 
 }
