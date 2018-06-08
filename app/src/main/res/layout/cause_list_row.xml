@@ -3,9 +3,23 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!--
+    val name: String,
+        val description: String,
+        val local: Boolean,
+        val favorite: Boolean
+    -->
+
     <TextView
+        android:id="@+id/cause_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SOME CAUSE"/>
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/cause_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 
 </LinearLayout>
