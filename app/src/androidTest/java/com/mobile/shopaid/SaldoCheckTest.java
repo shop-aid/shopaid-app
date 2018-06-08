@@ -25,13 +25,14 @@ public class SaldoCheckTest {
     public ActivityTestRule<SplashActivity> mActivityTestRule = new ActivityTestRule<>(SplashActivity.class);
 
     @Test
-    public void saldoCheckTest() {
+    public void saldoCheckTest() throws InterruptedException {
         onView(allOf(withId(R.id.entryInfoNextButton))).perform(click());
         onView(withId(R.id.login_email)).perform(typeText("petarboy69@icemobile.com"));
         onView(allOf(withId(R.id.login_sign_in_button))).perform(click());
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"));
         onView(allOf(withId(R.id.iban_next))).perform(click());
         onView(allOf(withId(R.id.cause_local))).perform(click());
+        Thread.sleep(10000);
         onView(allOf(withId(R.id.cause_international))).perform(click());
         onView(allOf(withId(R.id.cause_local))).perform(click());
         onView(allOf(withId(R.id.cause_next))).perform(click());
