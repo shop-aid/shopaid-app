@@ -32,8 +32,8 @@ class CauseListFragment : Fragment() {
 
             // specify an viewAdapter (see also next example)
             adapter = CauseAdapter()
-
         }
+
     }
 
     class CauseAdapter :
@@ -44,7 +44,6 @@ class CauseListFragment : Fragment() {
         // you provide access to all the views for a data item in a view holder.
         // Each data item is just a string in this case that is shown in a TextView.
         class ViewHolder(val textView: ViewGroup) : RecyclerView.ViewHolder(textView)
-
 
         // Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(parent: ViewGroup,
