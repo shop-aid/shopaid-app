@@ -12,6 +12,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import com.mobile.shopaid.ui.activity.splash.SplashActivity
 import com.mobile.shopaid.ui.fragment.CauseListFragment
+import junit.framework.Assert.assertTrue
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.junit.Test
@@ -49,5 +50,6 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withId(R.id.balance_detail_tab))).perform(click())
         Thread.sleep(2000)
         onView(allOf<View>(withId(R.id.balance_overview_tab))).perform(click())
+        assertTrue(true)
     }
 }

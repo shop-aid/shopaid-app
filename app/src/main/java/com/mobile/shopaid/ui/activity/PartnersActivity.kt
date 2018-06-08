@@ -1,5 +1,6 @@
 package com.mobile.shopaid.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -44,8 +45,7 @@ class PartnersActivity : AppCompatActivity() {
 
             fun bindData(partner: PartnerResponseModel) {
                 Picasso.get()
-                        .load("https://i1.wp.com/beattips2.com/b2images/JSDG_Beats.jpg?zoom=2&resize=702%2C440")
-                        .fit()
+                        .load("https://www.hrwcentrach.pl/en/graph/logo-clean.png")
                         .into(itemView.partner_logo)
 
 
