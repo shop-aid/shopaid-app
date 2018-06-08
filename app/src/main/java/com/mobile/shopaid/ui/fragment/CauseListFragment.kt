@@ -26,8 +26,8 @@ class CauseListFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@CauseListFragment.activity)
             adapter = CauseAdapter(mutableListOf(
-                    CauseResponseModel("Test name", "Test description", true, true),
-                    CauseResponseModel("Test name222", "Test description222", true, true)
+                    CauseResponseModel("Test name", "Test description", true, true, "logo url1", "category1", emptyList()),
+                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList())
             ))
         }
 
