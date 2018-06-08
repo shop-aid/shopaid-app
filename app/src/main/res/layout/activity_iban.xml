@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Would you like to get an overview of your transactions?"/>
+
+    <TextView
+        android:id="@+id/iban_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"/>
+
+    <TextView
+        android:id="@+id/iban_skip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Skip"/>
+
+
+
+</LinearLayout>

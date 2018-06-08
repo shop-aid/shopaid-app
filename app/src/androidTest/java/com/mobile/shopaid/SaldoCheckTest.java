@@ -27,6 +27,7 @@ public class SaldoCheckTest {
     public void saldoCheckTest() {
         onView(allOf(withId(R.id.entryInfoNextButton))).perform(click());
         onView(allOf(withId(R.id.login_sign_in_button))).perform(click());
+        onView(allOf(withId(R.id.iban_skip))).perform(click());
         onView(allOf(withId(R.id.partners_next))).perform(click());
         onView(allOf(withId(R.id.stores_info_next))).perform(click());
     }
