@@ -1,6 +1,5 @@
 package com.mobile.shopaid.ui.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.response.PartnerResponseModel
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.partner_list_row.view.*
 import kotlinx.android.synthetic.main.partners_activity.*
 
 class PartnersActivity : AppCompatActivity() {
@@ -22,7 +24,12 @@ class PartnersActivity : AppCompatActivity() {
         partners_recyclerview.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@PartnersActivity)
-            adapter = PartnersAdapter(ArrayList(), this@PartnersActivity)
+            adapter = PartnersAdapter(mutableListOf(
+                    PartnerResponseModel("test name", 0.5, "Partner name"),
+                    PartnerResponseModel("test name", 0.5, "Partner name1"),
+                    PartnerResponseModel("test name", 0.5, "Partner name2"),
+                    PartnerResponseModel("test name", 0.5, "Partner name3")
+            ))
         }
 
         partners_info_next.setOnClickListener({
@@ -31,26 +38,34 @@ class PartnersActivity : AppCompatActivity() {
 
     }
 
-    class PartnersAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+    class PartnersAdapter(private val partnersList: List<PartnerResponseModel>) : RecyclerView.Adapter<PartnersAdapter.ViewHolder>() {
+
+        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+            fun bindData(partner: PartnerResponseModel) {
+                Picasso.get()
+                        .load("https://i1.wp.com/beattips2.com/b2images/JSDG_Beats.jpg?zoom=2&resize=702%2C440")
+//                        .resize(50, 50)
+                        .centerCrop()
+                        .into(itemView.partner_logo)
 
 
-        // Gets the number of animals in the list
-        override fun getItemCount(): Int {
-            return 15
+                itemView.partner_name.text = partner.name
+                itemView.partner_percentage.text = partner.percentage.toString()
+            }
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(LayoutInflater.from(context).inflate(R.layout.partner_list_row, parent, false))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartnersAdapter.ViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.partner_list_row, parent, false)
+            return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//            holder?.tvAnimalType?.text = items.get(position)
+            holder.bindData(partnersList[position])
         }
-    }
 
-    class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-        // Holds the TextView that will add each animal to
-//        val tvAnimalType = view.tv_animal_type
+        override fun getItemCount() = partnersList.count()
     }
 
 }
