@@ -1,11 +1,7 @@
 package com.mobile.shopaid.ui.viewmodel
 
-import android.arch.lifecycle.MediatorLiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProviders
+import android.arch.lifecycle.*
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.CausesRepo
 import com.mobile.shopaid.data.repository.impl.CausesRepoImpl
@@ -21,15 +17,16 @@ import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 class CausesViewModel(private val causesRepo: CausesRepo) : ViewModel(), CausesViewModelContract {
 
     companion object {
-        fun create(fragment: Fragment): CausesViewModel {
+        fun create(owner: Fragment): CausesViewModel {
             val factory = ViewModelFactory(CausesViewModel(CausesRepoImpl()))
-            return ViewModelProviders.of(fragment, factory).get(CausesViewModel::class.java)
+            return ViewModelProviders.of(owner, factory).get(CausesViewModel::class.java)
         }
     }
 
     val causesObservable by lazy {
         MediatorLiveData<ObservableResult<List<CauseResponseModel>>>()
     }
+
     val loadingObservable by lazy {
         MutableLiveData<Boolean>()
     }
@@ -40,9 +37,11 @@ class CausesViewModel(private val causesRepo: CausesRepo) : ViewModel(), CausesV
     }
 
     private fun fetchCausesInternal() {
-        causesObservable.addSource(causesRepo.fetchCauses()) {
+        val repoData = causesRepo.fetchCauses()
+        causesObservable.addSource(repoData) {
             loadingObservable.value = false
             causesObservable.value = it
+            causesObservable.removeSource(repoData)
         }
     }
 }

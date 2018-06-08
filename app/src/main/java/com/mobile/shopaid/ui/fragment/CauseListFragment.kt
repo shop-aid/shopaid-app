@@ -11,15 +11,21 @@ import android.view.ViewGroup
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
+import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.CausesViewModel
 import kotlinx.android.synthetic.main.cause_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
+import kotlin.properties.Delegates
 
 class CauseListFragment : Fragment() {
 
     private val causesViewModel by lazy {
         CausesViewModel.create(this)
+    }
+
+    private val causesAdapter by lazy {
+        CauseAdapter()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,14 +38,7 @@ class CauseListFragment : Fragment() {
         cause_recyclerview.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@CauseListFragment.activity)
-            adapter = CauseAdapter(mutableListOf(
-                    CauseResponseModel("Test name", "Test description", true, true, "logo url1", "category1", emptyList()),
-                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
-                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
-                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
-                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList()),
-                    CauseResponseModel("Test name222", "Test description222", true, true, "logo url2", "category2", emptyList())
-            ))
+            adapter = causesAdapter
         }
 
         initObservers()
@@ -49,8 +48,8 @@ class CauseListFragment : Fragment() {
     private fun initObservers() {
         causesViewModel.causesObservable.observe(this, Observer<ObservableResult<List<CauseResponseModel>>> {
             when (it) {
-                is ObservableResult.Success -> println("Size ${it.data.count()}")
-                is ObservableResult.Error -> println("Error ${it.exception.localizedMessage}")
+                is ObservableResult.Success -> causesAdapter.causesList = it.data
+                is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
 
@@ -63,7 +62,11 @@ class CauseListFragment : Fragment() {
         loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    class CauseAdapter(private val causesList: List<CauseResponseModel>) : RecyclerView.Adapter<CauseAdapter.ViewHolder>() {
+    class CauseAdapter : RecyclerView.Adapter<CauseAdapter.ViewHolder>() {
+
+        var causesList: List<CauseResponseModel> by Delegates.observable(ArrayList()) { _, _, _ ->
+            notifyDataSetChanged()
+        }
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
