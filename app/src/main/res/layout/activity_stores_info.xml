@@ -12,27 +12,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Store1"/>
+            android:padding="@dimen/padding"
+            android:text="The following 7321 stores joined shopaid"/>
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/stores_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Store2"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Store3"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Store4"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Store5"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
