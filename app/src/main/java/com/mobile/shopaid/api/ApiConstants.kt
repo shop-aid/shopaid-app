@@ -9,7 +9,9 @@ package com.mobile.shopaid.api
 object ApiConstants {
 
     const val URL_SCHEME = "https"
-    const val BASE_URL = "abn-shopaid.herokuapp.com/api/v1/"
-    const val CAUSES_URL = BASE_URL + "causes.json"
-    const val PARTNERS_URL = BASE_URL + "partners.json"
+    const val BASE_URL = "abn-shopaid.herokuapp.com"
+    private const val API_V1_URL = "/api/v1/"
+
+    const val CAUSES_URL = "${API_V1_URL}causes.json"
+    const val PARTNERS_URL = "${API_V1_URL}partners.json"
 }
