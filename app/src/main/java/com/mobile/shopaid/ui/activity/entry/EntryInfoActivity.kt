@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
+import com.mobile.shopaid.ui.activity.LoginActivity
 import com.mobile.shopaid.extensions.animateView
 import com.mobile.shopaid.extensions.getFadeInAnimator
 import kotlinx.android.synthetic.main.activity_entry_info.*
