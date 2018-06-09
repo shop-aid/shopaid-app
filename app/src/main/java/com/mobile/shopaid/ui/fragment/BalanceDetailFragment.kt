@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.widget.RelativeLayout
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
@@ -56,11 +59,26 @@ class BalanceDetailFragment : Fragment() {
 
     class PartnerBreakdownAdapter(private val partnersBreakdownList: List<PartnerBreakdownResponseModel>) : RecyclerView.Adapter<PartnerBreakdownAdapter.ViewHolder>() {
 
+
+
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(partnerBreakdown: PartnerBreakdownResponseModel) {
                 itemView.partner_breakdown_title.text = partnerBreakdown.name
                 itemView.partner_breakdown_amount.text = partnerBreakdown.amount
+                val params = itemView.partner_breakdown_indicator.layoutParams
+
+                itemView.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
+                    override fun onPreDraw(): Boolean {
+                        itemView.viewTreeObserver.removeOnPreDrawListener(this)
+
+                        params.width = (itemView.breakdown_listrow_container.width * partnerBreakdown.percentage)/100
+                        itemView.partner_breakdown_indicator.layoutParams = params
+
+                        return true
+                    }
+
+                })
             }
         }
 

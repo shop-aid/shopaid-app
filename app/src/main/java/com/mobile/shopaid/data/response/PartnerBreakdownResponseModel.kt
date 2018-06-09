@@ -8,4 +8,5 @@ package com.mobile.shopaid.data.response
 
 data class PartnerBreakdownResponseModel (
         val name: String,
-        val amount: String)
+        val amount: String,
+        val percentage: Int)
