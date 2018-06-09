@@ -1,6 +1,8 @@
 package com.mobile.shopaid.ui.fragment
 
 import android.arch.lifecycle.Observer
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,14 +11,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.listener.FragmentItemToggleListener
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
-import com.mobile.shopaid.extensions.loadImage
-import com.mobile.shopaid.extensions.showError
+import com.mobile.shopaid.extensions.*
+import com.mobile.shopaid.ui.activity.CharityActivity
+import com.mobile.shopaid.ui.activity.PartnersActivity
 import com.mobile.shopaid.ui.viewmodel.CausesViewModel
+import kotlinx.android.synthetic.main.balance_activity.*
 import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import kotlin.properties.Delegates
 
 class CausesListFragment : Fragment() {
@@ -29,6 +36,11 @@ class CausesListFragment : Fragment() {
         CauseAdapter()
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        causesAdapter.listener = context as FragmentItemToggleListener
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.causes_list_fragment, container, false)
     }
@@ -38,7 +50,7 @@ class CausesListFragment : Fragment() {
 
         cause_recyclerview.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@CausesListFragment.activity)
+            layoutManager = LinearLayoutManager(context)
             adapter = causesAdapter
         }
 
@@ -69,6 +81,7 @@ class CausesListFragment : Fragment() {
             notifyDataSetChanged()
         }
 
+        var listener: FragmentItemToggleListener? = null
         private var expandedPosition = -1
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -79,6 +92,8 @@ class CausesListFragment : Fragment() {
                 itemView.cause_sub_text.text = cause.category
                 itemView.cause_logo.loadImage(cause.logo)
                 itemView.cause_item_description_container.text = cause.description
+                itemView.select_item_view.setImageResource(if (cause.isActive)
+                    R.drawable.icon_checkmark_selected else R.drawable.icon_checkmark_unselected)
             }
         }
 
@@ -89,7 +104,8 @@ class CausesListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bindData(causesList[position])
+            val item = causesList[position]
+            holder.bindData(item)
             if (position == expandedPosition) {
                 holder.itemView.cause_item_description_container.visibility = View.VISIBLE
                 holder.itemView.cause_details_button.setImageResource(R.drawable.icon_up)
@@ -111,8 +127,20 @@ class CausesListFragment : Fragment() {
                     notifyItemChanged(expandedPosition)
                 }
             })
+            holder.itemView.select_item_view.setOnClickListener {
+                item.isActive = !item.isActive
+                holder.itemView.select_item_view.setImageResource(if (item.isActive)
+                    R.drawable.icon_checkmark_selected else R.drawable.icon_checkmark_unselected)
+                listener?.onItemToggled(getActiveItems())
+            }
+            CalligraphyUtils.applyFontToTextView(holder.itemView.context,
+                    holder.itemView.cause_name, "fonts/avenirnextdemibold.ttf")
         }
 
         override fun getItemCount() = causesList.count()
+
+        private fun getActiveItems(): Int {
+            return causesList.count { it.isActive }
+        }
     }
 }

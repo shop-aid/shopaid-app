@@ -1,6 +1,7 @@
 package com.mobile.shopaid.ui.fragment
 
 import android.arch.lifecycle.Observer
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,13 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.listener.FragmentItemToggleListener
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.ProjectsResponseModel
+import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.ProjectsViewModel
 import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import kotlin.properties.Delegates
 
 /**
@@ -32,6 +36,11 @@ class ProjectsListFragment : Fragment() {
 
     private val projectsAdapter by lazy {
         ProjectsAdapter()
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        projectsAdapter.listener = context as FragmentItemToggleListener
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -74,12 +83,19 @@ class ProjectsListFragment : Fragment() {
             notifyDataSetChanged()
         }
 
+        var listener: FragmentItemToggleListener? = null
         private var expandedPosition = -1
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(cause: ProjectsResponseModel) {
+                itemView.cause_image.loadImage(cause.poster)
                 itemView.cause_name.text = cause.name
+                itemView.cause_sub_text.text = cause.category
+                itemView.cause_logo.loadImage(cause.logo)
+                itemView.cause_item_description_container.text = cause.description
+                itemView.select_item_view.setImageResource(if (cause.isActive)
+                    R.drawable.icon_checkmark_selected else R.drawable.icon_checkmark_unselected)
             }
         }
 
@@ -90,23 +106,43 @@ class ProjectsListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bindData(projectsList[position])
+            val item = projectsList[position]
+            holder.bindData(item)
             if (position == expandedPosition) {
                 holder.itemView.cause_item_description_container.visibility = View.VISIBLE
+                holder.itemView.cause_details_button.setImageResource(R.drawable.icon_up)
             } else {
                 holder.itemView.cause_item_description_container.visibility = View.GONE
+                holder.itemView.cause_details_button.setImageResource(R.drawable.icon_down)
             }
-            /*holder.itemView.cause_item_name.setOnClickListener({
+            holder.itemView.cause_details_button.setOnClickListener({
                 if (expandedPosition >= 0) {
                     val prev = expandedPosition
                     notifyItemChanged(prev)
                 }
 
-                expandedPosition = position
-                notifyItemChanged(expandedPosition)
-            })*/
+                if (expandedPosition == position) {
+                    expandedPosition = -1
+                    notifyItemChanged(position)
+                } else {
+                    expandedPosition = position
+                    notifyItemChanged(expandedPosition)
+                }
+            })
+            holder.itemView.select_item_view.setOnClickListener {
+                item.isActive = !item.isActive
+                holder.itemView.select_item_view.setImageResource(if (item.isActive)
+                    R.drawable.icon_checkmark_selected else R.drawable.icon_checkmark_unselected)
+                listener?.onItemToggled(getActiveItems())
+            }
+            CalligraphyUtils.applyFontToTextView(holder.itemView.context,
+                    holder.itemView.cause_name, "fonts/avenirnextdemibold.ttf")
         }
 
         override fun getItemCount() = projectsList.count()
+
+        private fun getActiveItems(): Int {
+            return projectsList.count { it.isActive }
+        }
     }
 }

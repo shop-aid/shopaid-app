@@ -1,23 +1,27 @@
 package com.mobile.shopaid.ui.activity
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.listener.FragmentItemToggleListener
 import com.mobile.shopaid.extensions.animateView
 import com.mobile.shopaid.extensions.getSlideInYAnimator
-import com.mobile.shopaid.extensions.waitForView
+import com.mobile.shopaid.extensions.getSlideOutYAnimator
 import com.mobile.shopaid.ui.fragment.CausesListFragment
 import com.mobile.shopaid.ui.fragment.ProjectsListFragment
 import kotlinx.android.synthetic.main.charity_activity.*
 
-class CharityActivity : BaseActivity() {
+class CharityActivity : BaseActivity(), FragmentItemToggleListener {
 
     companion object {
-        private const val DELAY_ANIMATION = 500L
+        private const val DELAY_ANIMATION = 100L
     }
+
+    private var isCounterShown = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +31,24 @@ class CharityActivity : BaseActivity() {
         cause_viewpager.adapter = CausePagerAdapter(supportFragmentManager)
         cause_sliding_tabs.setupWithViewPager(cause_viewpager)
 
-        charityNextLayout.waitForView {
-            animateView(getSlideInYAnimator(DELAY_ANIMATION))
-        }
-
         charityNextButton.setOnClickListener({
             startActivity(Intent(this, PartnersActivity::class.java))
         })
+    }
+
+    override fun onItemToggled(activeItemsCount: Int) {
+        charitySelectedView.text = getString(R.string.text_selected, activeItemsCount)
+        val animator: ObjectAnimator = if (isCounterShown && activeItemsCount == 0) {
+            isCounterShown = false
+            charityNextLayout.getSlideOutYAnimator(DELAY_ANIMATION)
+        } else if (!isCounterShown && activeItemsCount > 0) {
+            isCounterShown = true
+            charityNextLayout.getSlideInYAnimator(DELAY_ANIMATION)
+        } else return
+
+        charityNextLayout.run {
+            animateView(animator)
+        }
     }
 
     private inner class CausePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

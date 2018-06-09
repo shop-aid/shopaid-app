@@ -8,8 +8,7 @@ import android.app.Activity
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.view.View
-import android.view.View.ALPHA
-import android.view.View.TRANSLATION_Y
+import android.view.View.*
 import android.view.ViewTreeObserver
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
@@ -64,7 +63,31 @@ fun View.getSlideInYAnimator(interDelay: Long): ObjectAnimator {
             .ofFloat(this, TRANSLATION_Y, (1f * height), 0f)
     slideInAnimator.interpolator = AccelerateDecelerateInterpolator()
     slideInAnimator.duration = interDelay
+
+    slideInAnimator.addListener(object : AnimatorListenerAdapter() {
+        override fun onAnimationEnd(animation: Animator?) {
+            super.onAnimationEnd(animation)
+            visibility = VISIBLE
+        }
+    })
+
     return slideInAnimator
+}
+
+fun View.getSlideOutYAnimator(interDelay: Long): ObjectAnimator {
+    val slideOutAnimator = ObjectAnimator
+            .ofFloat(this, TRANSLATION_Y, 0f, (1f * height))
+    slideOutAnimator.interpolator = AccelerateDecelerateInterpolator()
+    slideOutAnimator.duration = interDelay
+
+    slideOutAnimator.addListener(object : AnimatorListenerAdapter() {
+        override fun onAnimationEnd(animation: Animator?) {
+            super.onAnimationEnd(animation)
+            visibility = GONE
+        }
+    })
+
+    return slideOutAnimator
 }
 
 fun Fragment.showError(text: String) {

@@ -22,4 +22,6 @@
     <dimen name="logo_width">200dp</dimen>
     <dimen name="logo_height">100dp</dimen>
 
+    <dimen name="item_selector_dimen">80dp</dimen>
+
 </resources>

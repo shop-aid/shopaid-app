@@ -14,4 +14,5 @@ data class CauseResponseModel(
         val logo: String,
         val category: String,
         val tags: List<String>,
-        val poster: String)
+        val poster: String,
+        var isActive: Boolean = false)

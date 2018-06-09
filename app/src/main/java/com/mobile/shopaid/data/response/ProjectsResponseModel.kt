@@ -13,4 +13,6 @@ data class ProjectsResponseModel(
         val favorite: Boolean,
         val logo: String,
         val category: String,
-        val tags: List<String>)
+        val tags: List<String>,
+        val poster: String,
+        var isActive: Boolean = false)
