@@ -14,6 +14,7 @@ import com.mobile.shopaid.ui.activity.PartnersActivity
 import com.mobile.shopaid.ui.activity.SplashActivity
 import com.mobile.shopaid.ui.fragment.CausesListFragment
 import junit.framework.Assert.assertTrue
+import kotlinx.android.synthetic.main.balance_activity.*
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.junit.Test
@@ -33,6 +34,8 @@ class BalanceCheckTestKotlinForPetar {
         IdlingPolicies.setMasterPolicyTimeout(15, TimeUnit.SECONDS)
         Thread.sleep(3000)
         onView(allOf<View>(withId(R.id.entryInfoNextButton))).perform(click())
+
+        Thread.sleep(3000)
         onView(withId(R.id.login_email)).perform(typeText("petarboy69@icemobile.com"))
         onView(allOf<View>(withId(R.id.login_sign_in_button))).perform(click())
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
@@ -61,6 +64,14 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withText("detail"))).perform(click())
         Thread.sleep(2000)
         onView(allOf<View>(withText("overview"))).perform(click())
+
+        onView(allOf<View>(withId(R.id.balance_period_year))).perform(click())
+        Thread.sleep(1000)
+        onView(allOf<View>(withId(R.id.balance_period_month))).perform(click())
+        Thread.sleep(1000)
+        onView(allOf<View>(withId(R.id.balance_period_week))).perform(click())
+        Thread.sleep(1000)
+        onView(allOf<View>(withId(R.id.balance_period_alltime))).perform(click())
 
         Thread.sleep(1000000)
         assertTrue(true)

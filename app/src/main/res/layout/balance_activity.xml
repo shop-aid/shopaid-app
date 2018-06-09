@@ -30,21 +30,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 
         <FrameLayout
             android:id="@+id/balance_period_alltime"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/balance_period_alltime_text"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
-                android:background="@drawable/balance_period_background"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
@@ -58,14 +57,13 @@
         <FrameLayout
             android:id="@+id/balance_period_year"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/balance_period_year_text"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
-                android:background="@drawable/balance_period_background"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
@@ -78,12 +76,12 @@
         <FrameLayout
             android:id="@+id/balance_period_month"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/balance_period_month_text"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -97,12 +95,12 @@
         <FrameLayout
             android:id="@+id/balance_period_week"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/balance_period_week_text"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"

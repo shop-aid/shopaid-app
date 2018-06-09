@@ -22,13 +22,13 @@ class BalanceActivity : BaseActivity() {
         balance_period_alltime.setOnClickListener({
             selectPeriod(0)
         })
-        balance_period_alltime.setOnClickListener({
+        balance_period_year.setOnClickListener({
             selectPeriod(1)
         })
-        balance_period_alltime.setOnClickListener({
+        balance_period_month.setOnClickListener({
             selectPeriod(2)
         })
-        balance_period_alltime.setOnClickListener({
+        balance_period_week.setOnClickListener({
             selectPeriod(3)
         })
 
