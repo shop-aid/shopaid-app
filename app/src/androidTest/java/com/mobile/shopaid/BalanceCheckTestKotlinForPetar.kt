@@ -38,16 +38,16 @@ class BalanceCheckTestKotlinForPetar {
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
         onView(allOf<View>(withId(R.id.iban_next))).perform(click())
 
-        Thread.sleep(1000)
-        onView(allOf(withText("international"))).perform(click())
-        Thread.sleep(1000)
-        onView(allOf(withText("local"))).perform(click())
+        Thread.sleep(3000)
+        onView(allOf(withText("events"))).perform(click())
+        Thread.sleep(3000)
+        onView(allOf(withText("charities"))).perform(click())
         onView(allOf(ViewMatchers.withId(R.id.cause_recyclerview), isCompletelyDisplayed()))
                 .perform(
                         RecyclerViewActions.scrollToPosition<CauseListFragment.CauseAdapter.ViewHolder>(5),
                         RecyclerViewActions.actionOnItemAtPosition<CauseListFragment.CauseAdapter.ViewHolder>(5, click()))
 
-        Thread.sleep(1000)
+        Thread.sleep(3000)
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())
         Thread.sleep(2000)
         onView(allOf(ViewMatchers.withId(R.id.partners_recyclerview), isCompletelyDisplayed()))

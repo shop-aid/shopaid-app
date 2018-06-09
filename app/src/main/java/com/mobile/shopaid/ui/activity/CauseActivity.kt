@@ -37,8 +37,8 @@ class CauseActivity : BaseActivity() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position){
-                0 -> "local"
-                else -> "international"
+                0 -> "charities"
+                else -> "events"
             }
         }
     }
