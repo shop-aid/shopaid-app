@@ -40,9 +40,9 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withId(R.id.iban_next))).perform(click())
 
         Thread.sleep(1000)
-        onView(allOf(withText("projects"))).perform(click())
-        Thread.sleep(1000)
-        onView(allOf(withText("causes"))).perform(click())
+//        onView(allOf(withText("projects"))).perform(click())
+//        Thread.sleep(1000)
+//        onView(allOf(withText("causes"))).perform(click())
         onView(allOf(ViewMatchers.withId(R.id.cause_recyclerview), isCompletelyDisplayed()))
                 .perform(
                         RecyclerViewActions.scrollToPosition<CausesListFragment.CauseAdapter.ViewHolder>(5),
