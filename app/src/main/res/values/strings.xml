@@ -2,7 +2,7 @@
     <string name="app_name">ShopAid</string>
     <string name="text_get_started">Get Started</string>
     <string name="text_loading">Loading, please wait…</string>
-    <string name="text_entry_info_header">Welcome to ShopAid. The place where you can effortlessly support a charity for free by shopping online.</string>
+    <string name="text_entry_info_header">Welcome to ShopAid. A service that helps charity when you shop online.</string>
     <string name="text_entry_info">Doesn’t cost you extra, the webshop will transfer a percentage of your purchase to charity.</string>
     <string name="text_login_email">Hi there, what is your e-mail address?</string>
     <string name="text_login_email_explanation">We need your e-mail to link your purchases to your account.</string>
