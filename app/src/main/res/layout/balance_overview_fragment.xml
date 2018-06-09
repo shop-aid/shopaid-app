@@ -68,7 +68,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:background="#FF5C83FC" />
 
             <android.support.v7.widget.RecyclerView
