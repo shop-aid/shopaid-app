@@ -2,8 +2,17 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FFFFFF</color>
 
     <color name="tab_selected">#FFFFFF</color>
     <color name="tab_unselected">#FFEEF2FE</color>
+
+    <color name="dark_blue">#2A283F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#5C83FC</color>
+    <color name="light_blue">#AAC1F7</color>
+    <color name="light_purple">#EEF2FE</color>
+    <color name="light_green">#2AFEC9</color>
+    <color name="baby_pink">#E995FE</color>
+    <color name="pink">#FB58BB</color>
 </resources>

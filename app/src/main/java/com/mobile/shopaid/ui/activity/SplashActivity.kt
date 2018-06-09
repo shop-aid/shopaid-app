@@ -15,7 +15,7 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_activity)
 
-        with(splashTextView) {
+        with(logoImageView) {
             animateView(getFadeInAnimator(DELAY_ANIMATION), getFadeOutAnimator(DELAY_ANIMATION)) {
                 startActivity(EntryInfoActivity.getStartIntent(this@SplashActivity))
                 finish()

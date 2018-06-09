@@ -6,21 +6,32 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.mobile.shopaid.R
+import com.mobile.shopaid.extensions.animateView
+import com.mobile.shopaid.extensions.getSlideInYAnimator
+import com.mobile.shopaid.extensions.waitForView
 import com.mobile.shopaid.ui.fragment.CausesListFragment
 import com.mobile.shopaid.ui.fragment.ProjectsListFragment
-import kotlinx.android.synthetic.main.cause_activity.*
+import kotlinx.android.synthetic.main.charity_activity.*
 
-class CausesActivity : BaseActivity() {
+class CharityActivity : BaseActivity() {
+
+    companion object {
+        private const val DELAY_ANIMATION = 500L
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.cause_activity)
+        setContentView(R.layout.charity_activity)
 
         cause_viewpager.adapter = CausePagerAdapter(supportFragmentManager)
         cause_sliding_tabs.setupWithViewPager(cause_viewpager)
 
-        cause_next.setOnClickListener({
+        charityNextLayout.waitForView {
+            animateView(getSlideInYAnimator(DELAY_ANIMATION))
+        }
+
+        charityNextButton.setOnClickListener({
             startActivity(Intent(this, PartnersActivity::class.java))
         })
     }
