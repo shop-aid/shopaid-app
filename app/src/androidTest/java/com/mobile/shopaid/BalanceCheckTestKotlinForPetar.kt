@@ -32,27 +32,25 @@ class BalanceCheckTestKotlinForPetar {
     @Throws(InterruptedException::class)
     fun saldoCheckTest() {
         IdlingPolicies.setMasterPolicyTimeout(15, TimeUnit.SECONDS)
-        Thread.sleep(3000)
+        Thread.sleep(2000)
         onView(allOf<View>(withId(R.id.entryInfoNextButton))).perform(click())
-
-        Thread.sleep(3000)
         onView(withId(R.id.login_email)).perform(typeText("petarboy69@icemobile.com"))
         onView(allOf<View>(withId(R.id.login_sign_in_button))).perform(click())
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
         onView(allOf<View>(withId(R.id.iban_next))).perform(click())
 
-        Thread.sleep(3000)
-        onView(allOf(withText("events"))).perform(click())
-        Thread.sleep(3000)
-        onView(allOf(withText("charities"))).perform(click())
+        Thread.sleep(1000)
+        onView(allOf(withText("projects"))).perform(click())
+        Thread.sleep(1000)
+        onView(allOf(withText("causes"))).perform(click())
         onView(allOf(ViewMatchers.withId(R.id.cause_recyclerview), isCompletelyDisplayed()))
                 .perform(
                         RecyclerViewActions.scrollToPosition<CausesListFragment.CauseAdapter.ViewHolder>(5),
                         RecyclerViewActions.actionOnItemAtPosition<CausesListFragment.CauseAdapter.ViewHolder>(5, click()))
 
-        Thread.sleep(3000)
+        Thread.sleep(1000)
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())
-        Thread.sleep(2000)
+        Thread.sleep(1000)
         onView(allOf(ViewMatchers.withId(R.id.partners_recyclerview), isCompletelyDisplayed()))
                 .perform(
                         RecyclerViewActions.scrollToPosition<PartnersActivity.PartnersAdapter.ViewHolder>(5),
@@ -60,9 +58,9 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
         onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
 
-        Thread.sleep(2000)
+        Thread.sleep(1000)
         onView(allOf<View>(withText("detail"))).perform(click())
-        Thread.sleep(2000)
+        Thread.sleep(1000)
         onView(allOf<View>(withText("overview"))).perform(click())
 
         onView(allOf<View>(withId(R.id.balance_period_year))).perform(click())

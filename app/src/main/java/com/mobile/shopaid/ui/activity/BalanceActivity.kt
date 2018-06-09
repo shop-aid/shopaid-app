@@ -1,6 +1,5 @@
 package com.mobile.shopaid.ui.activity
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -35,50 +34,11 @@ class BalanceActivity : BaseActivity() {
         selectPeriod(0)
     }
 
-
     private fun selectPeriod(selectedIndex: Int) {
-        when (selectedIndex) {
-            0 -> {
-                balance_period_alltime_text.setBackgroundResource(R.drawable.balance_period_background)
-                balance_period_year_text.setBackgroundResource(0)
-                balance_period_month_text.setBackgroundResource(0)
-                balance_period_week_text.setBackgroundResource(0)
-                balance_period_alltime_text.setTextColor(Color.WHITE)
-                balance_period_year_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_month_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_week_text.setTextColor(Color.parseColor("#FF707070"))
-            }
-            1 -> {
-                balance_period_alltime_text.setBackgroundResource(0)
-                balance_period_year_text.setBackgroundResource(R.drawable.balance_period_background)
-                balance_period_month_text.setBackgroundResource(0)
-                balance_period_week_text.setBackgroundResource(0)
-                balance_period_alltime_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_year_text.setTextColor(Color.WHITE)
-                balance_period_month_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_week_text.setTextColor(Color.parseColor("#FF707070"))
-            }
-            2 -> {
-                balance_period_alltime_text.setBackgroundResource(0)
-                balance_period_year_text.setBackgroundResource(0)
-                balance_period_month_text.setBackgroundResource(R.drawable.balance_period_background)
-                balance_period_week_text.setBackgroundResource(0)
-                balance_period_alltime_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_year_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_month_text.setTextColor(Color.WHITE)
-                balance_period_week_text.setTextColor(Color.parseColor("#FF707070"))
-            }
-            3 -> {
-                balance_period_alltime_text.setBackgroundResource(0)
-                balance_period_year_text.setBackgroundResource(0)
-                balance_period_month_text.setBackgroundResource(0)
-                balance_period_week_text.setBackgroundResource(R.drawable.balance_period_background)
-                balance_period_alltime_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_year_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_month_text.setTextColor(Color.parseColor("#FF707070"))
-                balance_period_week_text.setTextColor(Color.WHITE)
-            }
-        }
+        balance_period_alltime_text.setBackgroundResource(if (selectedIndex == 0) R.drawable.balance_period_background else 0)
+        balance_period_year_text.setBackgroundResource(if (selectedIndex == 1) R.drawable.balance_period_background else 0)
+        balance_period_month_text.setBackgroundResource(if (selectedIndex == 2) R.drawable.balance_period_background else 0)
+        balance_period_week_text.setBackgroundResource(if (selectedIndex == 3) R.drawable.balance_period_background else 0)
     }
 
     private inner class BalanceViewPager(fm: FragmentManager) : FragmentPagerAdapter(fm) {

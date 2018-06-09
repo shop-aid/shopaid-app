@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FF5C83FC">
 
     <TextView
-        android:gravity="center"
-        android:height="21dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:lineSpacingMultiplier="1.36"
         style="@style/shopaid_textstyle"
         android:text="Your Charity Balance™"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:width="287dp" />
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:gravity="center"
@@ -25,6 +26,7 @@
         android:lineSpacingMultiplier="1.38"
         style="@style/shopaid_textstyle"
         android:text="€ 231,20"
+        android:textColor="#FF2AFEC9"
         android:width="317dp" />
 
 
@@ -47,6 +49,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
+                android:textColor="#FFFFFF"
                 style="@style/shopaid_textstyle"
                 android:textSize="12sp"
                 android:text="All Time"
@@ -65,6 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#FFFFFF"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
                 style="@style/shopaid_textstyle"
@@ -84,6 +88,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#FFFFFF"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
                 style="@style/shopaid_textstyle"
@@ -103,6 +108,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#FFFFFF"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.33"
                 style="@style/shopaid_textstyle"
