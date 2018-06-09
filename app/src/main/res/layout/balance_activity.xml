@@ -138,6 +138,7 @@
             app:tabIndicatorColor="#FFFB58BB"
             app:tabTextColor="#FF2A283F"
             app:tabSelectedTextColor="#FFFB58BB"
+            app:tabBackground="@drawable/tab_color_selector"
             app:tabMode="fixed" />
 
         <android.support.v4.view.ViewPager
