@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlin.properties.Delegates
 
+
+
 class CauseListFragment : Fragment() {
 
     private val causesViewModel by lazy {
@@ -68,10 +70,13 @@ class CauseListFragment : Fragment() {
             notifyDataSetChanged()
         }
 
+        private var expandedPosition = -1
+
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(cause: CauseResponseModel) {
-                itemView.causeTextView.text = cause.name
+                itemView.cause_item_name.text = cause.name
+                itemView.causeTextView.text = cause.description
             }
         }
 
@@ -83,6 +88,20 @@ class CauseListFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bindData(causesList[position])
+            if (position == expandedPosition) {
+                holder.itemView.cause_item_description_container.visibility = View.VISIBLE;
+            } else {
+                holder.itemView.cause_item_description_container.visibility = View.GONE;
+            }
+            holder.itemView.cause_item_name.setOnClickListener({
+                if (expandedPosition >= 0) {
+                    val prev = expandedPosition
+                    notifyItemChanged(prev)
+                }
+
+                expandedPosition = position
+                notifyItemChanged(expandedPosition)
+            })
         }
 
         override fun getItemCount() = causesList.count()
