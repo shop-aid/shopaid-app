@@ -54,7 +54,10 @@ class PartnersActivity : BaseActivity() {
     private fun initObservers() {
         partnerViewModel.partnerObservable.observe(this, Observer<ObservableResult<List<PartnerResponseModel>>> {
             when (it) {
-                is ObservableResult.Success -> partnerAdapter.partnerList = it.data
+                is ObservableResult.Success -> {
+                    partners_title.text = "The following ${it.data.size} stores joined ShopAid."
+                    partnerAdapter.partnerList = it.data
+                }
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
