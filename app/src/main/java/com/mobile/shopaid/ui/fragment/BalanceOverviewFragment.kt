@@ -46,6 +46,9 @@ class BalanceOverviewFragment : Fragment() {
     }
 
     private fun init(userResponseModel : UserResponseModel) {
+        CalligraphyUtils.applyFontToTextView(activity, (percentage_row1_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
+        CalligraphyUtils.applyFontToTextView(activity, (percentage_row2_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
+        CalligraphyUtils.applyFontToTextView(activity, (percentage_row3_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
         (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[0].percentage.toString() + "%"
         (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[1].percentage.toString() + "%"
         (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[2].percentage.toString() + "%"
@@ -73,6 +76,7 @@ class BalanceOverviewFragment : Fragment() {
             fun bindData(causeBreakdown: CauseBreakdownReponseModel) {
                 itemView.cause_breakdown_title.text = causeBreakdown.name
                 itemView.cause_breakdown_amount.text = causeBreakdown.amount
+                CalligraphyUtils.applyFontToTextView(itemView.context, itemView.cause_breakdown_amount, "fonts/avenirnextdemibold.ttf")
             }
         }
 

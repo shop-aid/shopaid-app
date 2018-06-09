@@ -49,7 +49,7 @@ class BalanceCheckTestKotlinForPetar {
                         RecyclerViewActions.actionOnItemAtPosition<CausesListFragment.CauseAdapter.ViewHolder>(5, click()))
 
         Thread.sleep(1000)
-        onView(allOf<View>(withId(R.id.cause_next))).perform(click())
+        onView(allOf<View>(withId(R.id.charityNextButton))).perform(click())
         Thread.sleep(1000)
         onView(allOf(ViewMatchers.withId(R.id.partners_recyclerview), isCompletelyDisplayed()))
                 .perform(
