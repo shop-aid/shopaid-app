@@ -16,6 +16,9 @@ import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_cause_breakdown_listrow.view.*
 import kotlinx.android.synthetic.main.balance_overview_fragment.*
+import android.support.v7.widget.DividerItemDecoration
+
+
 
 
 class BalanceOverviewFragment : Fragment() {
@@ -49,6 +52,9 @@ class BalanceOverviewFragment : Fragment() {
             layoutManager = LinearLayoutManager(this@BalanceOverviewFragment.activity)
             adapter = CauseBreakdownAdapter(userResponseModel.cause_breakdown)
         }
+        val dividerItemDecoration = DividerItemDecoration(activity,
+                (balance_overview_recyclerview.layoutManager as LinearLayoutManager).orientation)
+        balance_overview_recyclerview.addItemDecoration(dividerItemDecoration)
     }
 
     class CauseBreakdownAdapter(private val causeBreakdownList: List<CauseBreakdownReponseModel>) : RecyclerView.Adapter<CauseBreakdownAdapter.ViewHolder>() {
