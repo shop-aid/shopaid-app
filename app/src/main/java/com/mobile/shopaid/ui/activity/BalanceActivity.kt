@@ -46,7 +46,7 @@ class BalanceActivity : BaseActivity() {
             balanceViewModel.fetchUser()
         } else {
             setContentView(R.layout.balance_empty_state)
-            balance_empty_state_select_bank.setOnClickListener( {
+            balance_empty_state_selectbank.setOnClickListener( {
                 startActivity(Intent(this, CredentialsActivity::class.java))
             })
         }

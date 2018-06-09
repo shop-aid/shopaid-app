@@ -2,28 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@color/blue">
+    android:layout_height="match_parent">
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical"-->
-        <!--android:layout_gravity="center">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/balance_empty_state_select_bank"
+            style="@style/shopaid_textstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.36"
+            android:text="Your Charity Balance™"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/shopaid_textstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="317dp"
+            android:height="61dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.38"
+            android:textColor="#FF2AFEC9"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:text="-"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_gigantic"
-            android:textColor="#FFFFFF"
-            android:gravity="center"
-            android:text="Do you want to see your balance?"/>
+            android:src="@drawable/icon_checkmark_selected"/>
 
-    <!--</LinearLayout>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_huge"
+            android:textColor="@color/blue"
+            android:text="Do you want to link your bank account to see how much the shops have donated to your charity?"/>
 
+        <Button
+            android:id="@+id/balance_empty_state_selectbank"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@drawable/button_normal_bg"
+            android:text="Yes, please!"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
 
-
+    </LinearLayout>
 
 </LinearLayout>
