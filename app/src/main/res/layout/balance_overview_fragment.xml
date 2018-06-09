@@ -1,67 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/lineargraph"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="#FFFFFF">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FF2A283F"
-            android:textSize="14sp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="Your most supported Charity Causes"/>
+            android:src="@drawable/lineargraph"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:src="@drawable/ic_launcher_background"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF2A283F"
+                android:textSize="14sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Your most supported Charity Causes"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="19dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <include android:id="@+id/percentage_row1_container" layout="@layout/balance_percentage_row"/>
-                <include android:id="@+id/percentage_row2_container" layout="@layout/balance_percentage_row"/>
-                <include android:id="@+id/percentage_row3_container" layout="@layout/balance_percentage_row"/>
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="19dp"
+                    android:orientation="vertical">
+
+                    <include android:id="@+id/percentage_row1_container" layout="@layout/balance_percentage_row"/>
+                    <include android:id="@+id/percentage_row2_container" layout="@layout/balance_percentage_row"/>
+                    <include android:id="@+id/percentage_row3_container" layout="@layout/balance_percentage_row"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF5C83FC"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/balance_overview_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFAAC1F7"/>
+
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FF5C83FC"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/balance_overview_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFAAC1F7"/>
-
     </LinearLayout>
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

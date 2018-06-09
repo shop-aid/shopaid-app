@@ -52,12 +52,12 @@ class BalanceOverviewFragment : Fragment() {
         (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[1].name
         (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
 
-
         balance_overview_recyclerview.apply {
 
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@BalanceOverviewFragment.activity)
             adapter = CauseBreakdownAdapter(userResponseModel.cause_breakdown)
+            isNestedScrollingEnabled = false
         }
         val dividerItemDecoration = DividerItemDecoration(activity,
                 (balance_overview_recyclerview.layoutManager as LinearLayoutManager).orientation)
