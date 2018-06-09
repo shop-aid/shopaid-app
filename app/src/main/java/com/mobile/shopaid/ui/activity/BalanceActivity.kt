@@ -1,6 +1,8 @@
 package com.mobile.shopaid.ui.activity
 
 import android.arch.lifecycle.Observer
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -14,10 +16,22 @@ import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_activity.*
+import kotlinx.android.synthetic.main.balance_empty_state.*
 import kotlinx.android.synthetic.main.loading_layout.*
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
 class BalanceActivity : BaseActivity() {
+
+    companion object {
+
+        const val EXTRA_SHOW_BALANCE = "extra_show_balance"
+
+        fun getStartIntent(context : Context, showBalance : Boolean) : Intent {
+            val intent = Intent(context, BalanceActivity::class.java)
+            intent.putExtra(EXTRA_SHOW_BALANCE, showBalance)
+            return intent
+        }
+    }
 
     private val balanceViewModel by lazy {
         BalanceViewModel.create(this)
@@ -26,10 +40,16 @@ class BalanceActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.balance_activity)
-
-        initObservers()
-        balanceViewModel.fetchUser()
+        if (intent.getBooleanExtra(EXTRA_SHOW_BALANCE, false)) {
+            setContentView(R.layout.balance_activity)
+            initObservers()
+            balanceViewModel.fetchUser()
+        } else {
+            setContentView(R.layout.balance_empty_state)
+            balance_empty_state_select_bank.setOnClickListener( {
+                startActivity(Intent(this, CredentialsActivity::class.java))
+            })
+        }
     }
 
     private fun initObservers() {

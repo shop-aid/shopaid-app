@@ -1,6 +1,5 @@
 package com.mobile.shopaid.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
 import com.mobile.shopaid.R
 import kotlinx.android.synthetic.main.registration_complete_activity.*
@@ -13,7 +12,7 @@ class RegistrationCompleteActivity : BaseActivity() {
         setContentView(R.layout.registration_complete_activity)
 
         registrationCompleteTextView.setOnClickListener({
-            startActivity(Intent(this, BalanceActivity::class.java))
+            startActivity(BalanceActivity.getStartIntent(this, false))
         })
     }
 

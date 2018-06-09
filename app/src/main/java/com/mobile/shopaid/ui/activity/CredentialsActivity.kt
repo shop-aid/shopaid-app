@@ -1,5 +1,6 @@
 package com.mobile.shopaid.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mobile.shopaid.R
@@ -13,7 +14,9 @@ class CredentialsActivity : AppCompatActivity() {
         setContentView(R.layout.credentials_activity)
 
         credentials_next.setOnClickListener({
-            // TODO
+            val intent = BalanceActivity.getStartIntent(this, true)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         })
     }
 
