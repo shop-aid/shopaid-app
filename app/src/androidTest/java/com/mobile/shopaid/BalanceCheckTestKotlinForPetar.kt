@@ -51,11 +51,11 @@ class BalanceCheckTestKotlinForPetar {
         Thread.sleep(5000)
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
         onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
-        
+
         Thread.sleep(2000)
-        onView(allOf<View>(withId(R.id.balance_detail_tab))).perform(click())
+        onView(allOf<View>(withText("detail"))).perform(click())
         Thread.sleep(2000)
-        onView(allOf<View>(withId(R.id.balance_overview_tab))).perform(click())
+        onView(allOf<View>(withText("overview"))).perform(click())
         assertTrue(true)
     }
 }
