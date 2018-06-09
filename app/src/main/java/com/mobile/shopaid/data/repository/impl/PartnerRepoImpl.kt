@@ -6,6 +6,7 @@ import com.mobile.shopaid.api.client.RetrofitClient
 import com.mobile.shopaid.api.service.PartnerService
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.PartnerRepo
+import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
 import com.mobile.shopaid.data.response.PartnerResponseModel
 import retrofit2.Call
 import retrofit2.Callback

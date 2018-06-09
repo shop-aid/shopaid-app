@@ -8,5 +8,5 @@ package com.mobile.shopaid.ui.viewmodel
 
 interface BalanceDetailViewModelContract {
 
-    fun fetchPartnerBreakdowns()
+    fun fetchUser()
 }

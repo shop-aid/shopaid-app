@@ -14,4 +14,5 @@ object ApiConstants {
 
     const val CAUSES_URL = "${API_V1_URL}causes.json"
     const val PARTNERS_URL = "${API_V1_URL}partners.json"
+    const val USERS_URL = "${API_V1_URL}users.json"
 }

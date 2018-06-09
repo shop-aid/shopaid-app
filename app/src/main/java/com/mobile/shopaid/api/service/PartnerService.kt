@@ -1,6 +1,7 @@
 package com.mobile.shopaid.api.service
 
 import com.mobile.shopaid.api.ApiConstants
+import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
 import com.mobile.shopaid.data.response.PartnerResponseModel
 import retrofit2.Call
 import retrofit2.http.GET
