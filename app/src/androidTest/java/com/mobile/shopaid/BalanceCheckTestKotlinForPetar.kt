@@ -10,6 +10,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
+import com.mobile.shopaid.ui.activity.PartnersActivity
 import com.mobile.shopaid.ui.activity.SplashActivity
 import com.mobile.shopaid.ui.fragment.CauseListFragment
 import junit.framework.Assert.assertTrue
@@ -48,7 +49,11 @@ class BalanceCheckTestKotlinForPetar {
 
         Thread.sleep(1000)
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())
-        Thread.sleep(5000)
+        Thread.sleep(2000)
+        onView(allOf(ViewMatchers.withId(R.id.partners_recyclerview), isCompletelyDisplayed()))
+                .perform(
+                        RecyclerViewActions.scrollToPosition<PartnersActivity.PartnersAdapter.ViewHolder>(5),
+                        RecyclerViewActions.actionOnItemAtPosition<PartnersActivity.PartnersAdapter.ViewHolder>(5, click()))
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
         onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
 

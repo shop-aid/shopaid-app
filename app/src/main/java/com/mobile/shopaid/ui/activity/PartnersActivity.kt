@@ -74,7 +74,7 @@ class PartnersActivity : BaseActivity() {
 
             fun bindData(partner: PartnerResponseModel) {
                 Picasso.get()
-                        .load("https://www.hrwcentrach.pl/en/graph/logo-clean.png")
+                        .load(partner.logo)
                         .into(itemView.partner_logo)
 
 
