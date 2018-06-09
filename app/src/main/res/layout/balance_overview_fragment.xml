@@ -23,13 +23,13 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/balance_overview_charity_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#FF2A283F"
-                android:textSize="14sp"
-                android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="Your most supported Charity Causes"/>
+                android:text="Your most supported Charity Causes"
+                android:textColor="#FF2A283F"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,19 +37,29 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/piechart" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="19dp"
-                    android:orientation="vertical">
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="19dp"
+                    android:paddingRight="19dp">
 
-                    <include android:id="@+id/percentage_row1_container" layout="@layout/balance_percentage_row"/>
-                    <include android:id="@+id/percentage_row2_container" layout="@layout/balance_percentage_row"/>
-                    <include android:id="@+id/percentage_row3_container" layout="@layout/balance_percentage_row"/>
+                    <include
+                        android:id="@+id/percentage_row1_container"
+                        layout="@layout/balance_percentage_row" />
+
+                    <include
+                        android:id="@+id/percentage_row2_container"
+                        layout="@layout/balance_percentage_row" />
+
+                    <include
+                        android:id="@+id/percentage_row3_container"
+                        layout="@layout/balance_percentage_row" />
 
                 </LinearLayout>
 
@@ -58,13 +68,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#FF5C83FC"/>
+                android:layout_marginTop="8dp"
+                android:background="#FF5C83FC" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/balance_overview_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFAAC1F7"/>
+                android:layout_marginTop="8dp"
+                android:background="#FFAAC1F7" />
 
         </LinearLayout>
 

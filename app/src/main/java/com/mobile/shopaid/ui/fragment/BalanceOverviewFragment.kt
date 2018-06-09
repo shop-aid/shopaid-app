@@ -3,11 +3,13 @@ package com.mobile.shopaid.ui.fragment
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseBreakdownReponseModel
@@ -16,8 +18,7 @@ import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_cause_breakdown_listrow.view.*
 import kotlinx.android.synthetic.main.balance_overview_fragment.*
-import android.support.v7.widget.DividerItemDecoration
-import android.widget.TextView
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
 
 class BalanceOverviewFragment : Fragment() {
@@ -51,6 +52,7 @@ class BalanceOverviewFragment : Fragment() {
         (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[0].name
         (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[1].name
         (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
+        CalligraphyUtils.applyFontToTextView(activity, balance_overview_charity_label, "fonts/avenirnextdemibold.ttf")
 
         balance_overview_recyclerview.apply {
 
