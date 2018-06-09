@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface UserService {
 
     @get:GET(ApiConstants.USERS_URL)
-    val user: Call<List<UserResponseModel>>
+    val user: Call<UserResponseModel>
 }

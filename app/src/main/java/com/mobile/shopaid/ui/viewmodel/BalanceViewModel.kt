@@ -5,6 +5,8 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.SupportActivity
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.UserRepo
 import com.mobile.shopaid.data.repository.impl.UserRepoImpl
@@ -17,17 +19,17 @@ import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
  * At: 18:48
  */
 
-class BalanceDetailViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceDetailViewModelContract {
+class BalanceViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceViewModelContract {
 
     companion object {
-        fun create(owner: Fragment): BalanceDetailViewModel {
-            val factory = ViewModelFactory(BalanceDetailViewModel(UserRepoImpl()))
-            return ViewModelProviders.of(owner, factory).get(BalanceDetailViewModel::class.java)
+        fun create(owner: FragmentActivity): BalanceViewModel {
+            val factory = ViewModelFactory(BalanceViewModel(UserRepoImpl()))
+            return ViewModelProviders.of(owner, factory).get(BalanceViewModel::class.java)
         }
     }
 
     val userbservable by lazy {
-        MediatorLiveData<ObservableResult<List<UserResponseModel>>>()
+        MediatorLiveData<ObservableResult<UserResponseModel>>()
     }
 
     val loadingObservable by lazy {

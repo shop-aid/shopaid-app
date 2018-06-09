@@ -6,7 +6,7 @@ package com.mobile.shopaid.ui.viewmodel
  * At: 18:47
  */
 
-interface BalanceDetailViewModelContract {
+interface BalanceViewModelContract {
 
     fun fetchUser()
 }

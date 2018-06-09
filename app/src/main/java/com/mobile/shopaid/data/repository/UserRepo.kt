@@ -6,6 +6,6 @@ import com.mobile.shopaid.data.response.UserResponseModel
 
 interface UserRepo {
 
-    fun fetchUser(): LiveData<ObservableResult<List<UserResponseModel>>>
+    fun fetchUser(): LiveData<ObservableResult<UserResponseModel>>
 
 }

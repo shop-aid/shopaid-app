@@ -21,18 +21,18 @@ class UserRepoImpl : UserRepo {
 
     private val userService = RetrofitClient.retrofit.create(UserService::class.java)
     private val userObservable by lazy {
-        MutableLiveData<ObservableResult<List<UserResponseModel>>>()
+        MutableLiveData<ObservableResult<UserResponseModel>>()
     }
 
-    override fun fetchUser(): LiveData<ObservableResult<List<UserResponseModel>>> {
-        userService.user.enqueue(object : Callback<List<UserResponseModel>> {
-            override fun onResponse(call: Call<List<UserResponseModel>>?, response: Response<List<UserResponseModel>>?) {
+    override fun fetchUser(): LiveData<ObservableResult<UserResponseModel>> {
+        userService.user.enqueue(object : Callback<UserResponseModel> {
+            override fun onResponse(call: Call<UserResponseModel>?, response: Response<UserResponseModel>?) {
                 val result = response?.body()
                 userObservable.postValue(if (result != null) ObservableResult.Success(result)
                 else ObservableResult.Error(Exception(Throwable())))
             }
 
-            override fun onFailure(call: Call<List<UserResponseModel>>?, t: Throwable?) {
+            override fun onFailure(call: Call<UserResponseModel>?, t: Throwable?) {
                 userObservable.postValue(ObservableResult.Error(Exception(t)))
             }
         })

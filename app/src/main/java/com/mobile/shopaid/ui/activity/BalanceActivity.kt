@@ -1,21 +1,56 @@
 package com.mobile.shopaid.ui.activity
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.view.View
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.observable.ObservableResult
+import com.mobile.shopaid.data.response.UserResponseModel
+import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
+import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_activity.*
+import kotlinx.android.synthetic.main.loading_layout.*
 
 class BalanceActivity : BaseActivity() {
+
+    private val balanceViewModel by lazy {
+        BalanceViewModel.create(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.balance_activity)
+
+        initObservers()
+        balanceViewModel.fetchUser()
+    }
+
+    private fun initObservers() {
+        balanceViewModel.userbservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
+            when (it) {
+                is ObservableResult.Success -> init()
+                is ObservableResult.Error -> showError(it.exception.localizedMessage)
+            }
+        })
+
+        balanceViewModel.loadingObservable.observe(this, Observer {
+            toggleLoading(it ?: false)
+        })
+    }
+
+    private fun toggleLoading(isLoading: Boolean) {
+        loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun init() {
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
+
         balannce_sliding_tabs.setupWithViewPager(balance_viewpager)
 
         balance_period_alltime.setOnClickListener({
