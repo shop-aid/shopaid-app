@@ -11,6 +11,7 @@
     <string name="text_sign_in_google">Sign in with Google</string>
     <string name="text_charity_header">To whom would you like to contribute?</string>
     <string name="text_next">Next</string>
+    <string name="text_done">Done</string>
     <string name="text_selected">Selected: %d</string>
     <string name="text_registration_complete">You\'re all set. Start shopping while making the world a better place</string>
 </resources>
