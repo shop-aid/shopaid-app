@@ -74,7 +74,7 @@
                     android:layout_width="@dimen/item_selector_dimen"
                     android:layout_height="@dimen/item_selector_dimen"
                     android:layout_gravity="center|bottom"
-                    android:layout_marginBottom="@dimen/spacing_huge"
+                    android:layout_marginBottom="68dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_checkmark_unselected" />
 

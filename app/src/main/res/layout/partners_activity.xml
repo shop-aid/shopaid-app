@@ -24,13 +24,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/partners_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
                 android:text="@string/text_partners_header"
                 android:textColor="#FFFFFF"
-                android:textSize="28sp" />
+                android:textSize="32sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/partners_recyclerview"
