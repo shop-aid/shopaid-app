@@ -3,6 +3,7 @@ package com.mobile.shopaid.data.repository
 import android.arch.lifecycle.LiveData
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
+import com.mobile.shopaid.data.response.ProjectsResponseModel
 
 /**
  * Created by: Petar Anastasov
@@ -10,7 +11,9 @@ import com.mobile.shopaid.data.response.CauseResponseModel
  * At: 18:01
  */
 
-interface CausesRepo {
+interface CharityRepo {
 
     fun fetchCauses(): LiveData<ObservableResult<List<CauseResponseModel>>>
+
+    fun fetchProjects(): LiveData<ObservableResult<List<ProjectsResponseModel>>>
 }

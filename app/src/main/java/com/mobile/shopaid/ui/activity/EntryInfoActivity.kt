@@ -29,15 +29,7 @@ class EntryInfoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_info_activity)
 
-        entryInfoHeaderView.run {
-            animateView(getFadeInAnimator(DELAY_ANIMATION))
-        }
-
-        entryInfoView.run {
-            animateView(getFadeInAnimator(DELAY_ANIMATION))
-        }
-
-        entryInfoNextButton.run {
+        root.run {
             animateView(getFadeInAnimator(DELAY_ANIMATION))
         }
 

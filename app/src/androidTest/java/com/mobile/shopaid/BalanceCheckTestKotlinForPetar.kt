@@ -12,7 +12,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import com.mobile.shopaid.ui.activity.PartnersActivity
 import com.mobile.shopaid.ui.activity.SplashActivity
-import com.mobile.shopaid.ui.fragment.CauseListFragment
+import com.mobile.shopaid.ui.fragment.CausesListFragment
 import junit.framework.Assert.assertTrue
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
@@ -44,8 +44,8 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf(withText("charities"))).perform(click())
         onView(allOf(ViewMatchers.withId(R.id.cause_recyclerview), isCompletelyDisplayed()))
                 .perform(
-                        RecyclerViewActions.scrollToPosition<CauseListFragment.CauseAdapter.ViewHolder>(5),
-                        RecyclerViewActions.actionOnItemAtPosition<CauseListFragment.CauseAdapter.ViewHolder>(5, click()))
+                        RecyclerViewActions.scrollToPosition<CausesListFragment.CauseAdapter.ViewHolder>(5),
+                        RecyclerViewActions.actionOnItemAtPosition<CausesListFragment.CauseAdapter.ViewHolder>(5, click()))
 
         Thread.sleep(3000)
         onView(allOf<View>(withId(R.id.cause_next))).perform(click())

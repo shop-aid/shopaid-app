@@ -6,11 +6,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.mobile.shopaid.R
-import com.mobile.shopaid.ui.fragment.CauseListFragment
+import com.mobile.shopaid.ui.fragment.CausesListFragment
+import com.mobile.shopaid.ui.fragment.ProjectsListFragment
 import kotlinx.android.synthetic.main.cause_activity.*
 
-
-class CauseActivity : BaseActivity() {
+class CausesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,13 @@ class CauseActivity : BaseActivity() {
     private inner class CausePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
-            return CauseListFragment()
+            return when (position) {
+                0 -> CausesListFragment()
+                1 -> ProjectsListFragment()
+                else -> {
+                    CausesListFragment()
+                }
+            }
         }
 
         override fun getCount(): Int {
@@ -36,9 +42,9 @@ class CauseActivity : BaseActivity() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return when (position){
-                0 -> "charities"
-                else -> "events"
+            return when (position) {
+                0 -> "causes"
+                else -> "projects"
             }
         }
     }

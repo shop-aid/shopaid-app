@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "802080944096",
+    "firebase_url": "https://shopaid-a8640.firebaseio.com",
+    "project_id": "shopaid-a8640",
+    "storage_bucket": "shopaid-a8640.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802080944096:android:ababa1f1580cab9e",
+        "android_client_info": {
+          "package_name": "com.mobile.shopaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802080944096-8324af4vckv64kig3mj9nqqko6meajfi.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "802080944096-8324af4vckv64kig3mj9nqqko6meajfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOi91JNtIJ7mn18IYejcxSiartjGa3AW0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

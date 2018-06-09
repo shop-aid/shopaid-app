@@ -12,8 +12,8 @@ class IbanActivity : BaseActivity() {
 
         setContentView(R.layout.iban_activity)
 
-        iban_next.setOnClickListener { startActivity(Intent(this, CauseActivity::class.java))}
-        iban_skip.setOnClickListener { startActivity(Intent(this, CauseActivity::class.java))}
+        iban_next.setOnClickListener { startActivity(Intent(this, CausesActivity::class.java))}
+        iban_skip.setOnClickListener { startActivity(Intent(this, CausesActivity::class.java))}
     }
 
 }

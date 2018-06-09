@@ -13,14 +13,14 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.CausesViewModel
-import kotlinx.android.synthetic.main.cause_list_fragment.*
+import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlin.properties.Delegates
 
 
 
-class CauseListFragment : Fragment() {
+class CausesListFragment : Fragment() {
 
     private val causesViewModel by lazy {
         CausesViewModel.create(this)
@@ -31,7 +31,7 @@ class CauseListFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.cause_list_fragment, container, false)
+        return inflater.inflate(R.layout.causes_list_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class CauseListFragment : Fragment() {
 
         cause_recyclerview.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@CauseListFragment.activity)
+            layoutManager = LinearLayoutManager(this@CausesListFragment.activity)
             adapter = causesAdapter
         }
 
@@ -89,9 +89,9 @@ class CauseListFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bindData(causesList[position])
             if (position == expandedPosition) {
-                holder.itemView.cause_item_description_container.visibility = View.VISIBLE;
+                holder.itemView.cause_item_description_container.visibility = View.VISIBLE
             } else {
-                holder.itemView.cause_item_description_container.visibility = View.GONE;
+                holder.itemView.cause_item_description_container.visibility = View.GONE
             }
             holder.itemView.cause_item_name.setOnClickListener({
                 if (expandedPosition >= 0) {

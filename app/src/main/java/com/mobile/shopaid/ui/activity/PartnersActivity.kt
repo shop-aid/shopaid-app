@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerResponseModel
+import com.mobile.shopaid.extensions.loadImage
+import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.PartnerViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.loading_layout.*
@@ -51,7 +53,7 @@ class PartnersActivity : BaseActivity() {
         partnerViewModel.partnerObservable.observe(this, Observer<ObservableResult<List<PartnerResponseModel>>> {
             when (it) {
                 is ObservableResult.Success -> partnerAdapter.partnerList = it.data
-//                is ObservableResult.Error -> showError(it.exception.localizedMessage)
+                is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
 
@@ -73,11 +75,7 @@ class PartnersActivity : BaseActivity() {
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(partner: PartnerResponseModel) {
-                Picasso.get()
-                        .load(partner.logo)
-                        .into(itemView.partner_logo)
-
-
+                itemView.partner_logo.loadImage(partner.logo)
                 itemView.partner_name.text = partner.name
                 itemView.partner_percentage.text = partner.percentage.toString()
             }

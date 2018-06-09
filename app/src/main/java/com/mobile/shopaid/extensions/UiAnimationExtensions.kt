@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.app.Activity
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.view.View
@@ -47,4 +48,8 @@ fun View.getFadeOutAnimator(interDelay: Long): ObjectAnimator {
 
 fun Fragment.showError(text: String) {
     Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+}
+
+fun Activity.showError(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
