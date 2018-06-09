@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,8 +18,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_normal_s"
-                android:text="The following 7321 stores joined shopaid"/>
+                android:padding="24dp"
+                android:textSize="28sp"
+                android:textColor="#FFFFFF"
+                android:text="The following 4120 stores joined ShopAid."/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/partners_recyclerview"
@@ -27,11 +30,16 @@
 
         </LinearLayout>
 
-        <TextView
+        <Button
             android:id="@+id/partners_info_next"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"/>
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@drawable/button_normal_bg"
+            android:text="@string/text_next"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 
