@@ -40,10 +40,10 @@ class CharityActivity : BaseActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> CausesListFragment()
-                1 -> ProjectsListFragment()
+                0 -> ProjectsListFragment()
+                1 -> CausesListFragment()
                 else -> {
-                    CausesListFragment()
+                    ProjectsListFragment()
                 }
             }
         }
@@ -54,8 +54,8 @@ class CharityActivity : BaseActivity() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position) {
-                0 -> "causes"
-                else -> "projects"
+                0 -> "projects"
+                else -> "causes"
             }
         }
     }
