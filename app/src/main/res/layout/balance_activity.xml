@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:gravity="center"
         android:height="21dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:lineSpacingMultiplier="1.36"
-        android:style="@style/shopaid_textstyle"
+        style="@style/shopaid_textstyle"
         android:text="Your Charity Balance™"
         android:textSize="14sp"
         android:width="287dp" />
@@ -24,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:lineSpacingMultiplier="1.38"
-        android:style="@style/shopaid_textstyle"
+        style="@style/shopaid_textstyle"
         android:text="€ 231,20"
         android:width="317dp" />
 
@@ -36,18 +35,20 @@
         android:layout_marginTop="16dp">
 
         <FrameLayout
+            android:id="@+id/balance_period_alltime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/balance_period_alltime_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:background="@drawable/balance_period_background"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:height="16dp"
                 android:lineSpacingMultiplier="1.33"
-                android:style="@style/shopaid_textstyle"
+                style="@style/shopaid_textstyle"
                 android:textSize="12sp"
                 android:text="All Time"
                 android:width="48dp" />
@@ -55,53 +56,58 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/balance_period_year"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/balance_period_year_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:background="@drawable/balance_period_background"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:height="16dp"
                 android:lineSpacingMultiplier="1.33"
-                android:style="@style/shopaid_textstyle"
+                style="@style/shopaid_textstyle"
                 android:textSize="12sp"
                 android:text="Year"
                 android:width="48dp" />
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/balance_period_month"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/balance_period_month_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:height="16dp"
                 android:lineSpacingMultiplier="1.33"
-                android:style="@style/shopaid_textstyle"
+                style="@style/shopaid_textstyle"
                 android:textSize="12sp"
                 android:text="Month"
                 android:width="48dp" />
         </FrameLayout>
+
         <FrameLayout
+            android:id="@+id/balance_period_week"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/balance_period_week_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:height="16dp"
                 android:lineSpacingMultiplier="1.33"
-                android:style="@style/shopaid_textstyle"
+                style="@style/shopaid_textstyle"
                 android:textSize="12sp"
                 android:text="Week"
                 android:width="48dp" />

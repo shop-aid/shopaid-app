@@ -31,7 +31,7 @@ class BalanceCheckTestKotlinForPetar {
     @Throws(InterruptedException::class)
     fun saldoCheckTest() {
         IdlingPolicies.setMasterPolicyTimeout(15, TimeUnit.SECONDS)
-        Thread.sleep(2000)
+        Thread.sleep(3000)
         onView(allOf<View>(withId(R.id.entryInfoNextButton))).perform(click())
         onView(withId(R.id.login_email)).perform(typeText("petarboy69@icemobile.com"))
         onView(allOf<View>(withId(R.id.login_sign_in_button))).perform(click())
@@ -61,6 +61,8 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withText("detail"))).perform(click())
         Thread.sleep(2000)
         onView(allOf<View>(withText("overview"))).perform(click())
+
+        Thread.sleep(1000000)
         assertTrue(true)
     }
 }
