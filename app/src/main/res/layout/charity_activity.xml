@@ -10,11 +10,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/img_header"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blue"
-            android:padding="@dimen/spacing_normal_s"
+            android:paddingLeft="@dimen/spacing_normal_s"
+            android:paddingRight="@dimen/spacing_normal_s"
+            android:paddingBottom="@dimen/spacing_normal_s"
             android:text="@string/text_charity_header"
             android:textColor="@color/white"
             android:textSize="@dimen/text_gigantic" />

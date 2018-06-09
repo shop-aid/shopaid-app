@@ -15,6 +15,13 @@
             android:background="#FF5C83FC"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:src="@drawable/img_header"/>
+
             <TextView
                 style="@style/shopaid_textstyle"
                 android:layout_width="match_parent"
