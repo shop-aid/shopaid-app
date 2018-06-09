@@ -13,4 +13,5 @@ data class CauseResponseModel(
         val favorite: Boolean,
         val logo: String,
         val category: String,
-        val tags: List<String>)
+        val tags: List<String>,
+        val poster: String)

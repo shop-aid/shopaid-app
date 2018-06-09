@@ -11,14 +11,13 @@ import android.view.ViewGroup
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
+import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.CausesViewModel
 import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlin.properties.Delegates
-
-
 
 class CausesListFragment : Fragment() {
 
@@ -75,8 +74,11 @@ class CausesListFragment : Fragment() {
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(cause: CauseResponseModel) {
-                itemView.cause_item_name.text = cause.name
-                itemView.causeTextView.text = cause.description
+                itemView.cause_image.loadImage(cause.poster)
+                itemView.cause_name.text = cause.name
+                itemView.cause_sub_text.text = cause.category
+                itemView.cause_logo.loadImage(cause.logo)
+                itemView.cause_item_description_container.text = cause.description
             }
         }
 
@@ -90,17 +92,24 @@ class CausesListFragment : Fragment() {
             holder.bindData(causesList[position])
             if (position == expandedPosition) {
                 holder.itemView.cause_item_description_container.visibility = View.VISIBLE
+                holder.itemView.cause_details_button.setImageResource(R.drawable.icon_up)
             } else {
                 holder.itemView.cause_item_description_container.visibility = View.GONE
+                holder.itemView.cause_details_button.setImageResource(R.drawable.icon_down)
             }
-            holder.itemView.cause_item_name.setOnClickListener({
+            holder.itemView.cause_details_button.setOnClickListener({
                 if (expandedPosition >= 0) {
                     val prev = expandedPosition
                     notifyItemChanged(prev)
                 }
 
-                expandedPosition = position
-                notifyItemChanged(expandedPosition)
+                if (expandedPosition == position) {
+                    expandedPosition = -1
+                    notifyItemChanged(position)
+                } else {
+                    expandedPosition = position
+                    notifyItemChanged(expandedPosition)
+                }
             })
         }
 

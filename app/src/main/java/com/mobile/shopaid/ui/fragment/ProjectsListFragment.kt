@@ -79,8 +79,7 @@ class ProjectsListFragment : Fragment() {
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(cause: ProjectsResponseModel) {
-                itemView.cause_item_name.text = cause.name
-                itemView.causeTextView.text = cause.description
+                itemView.cause_name.text = cause.name
             }
         }
 
@@ -97,7 +96,7 @@ class ProjectsListFragment : Fragment() {
             } else {
                 holder.itemView.cause_item_description_container.visibility = View.GONE
             }
-            holder.itemView.cause_item_name.setOnClickListener({
+            /*holder.itemView.cause_item_name.setOnClickListener({
                 if (expandedPosition >= 0) {
                     val prev = expandedPosition
                     notifyItemChanged(prev)
@@ -105,7 +104,7 @@ class ProjectsListFragment : Fragment() {
 
                 expandedPosition = position
                 notifyItemChanged(expandedPosition)
-            })
+            })*/
         }
 
         override fun getItemCount() = projectsList.count()
