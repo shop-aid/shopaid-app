@@ -62,7 +62,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".ui.activity.ChooseBankActivity"
+            android:name=".ui.activity.SelectBankActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 

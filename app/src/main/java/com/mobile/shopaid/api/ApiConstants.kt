@@ -16,4 +16,5 @@ object ApiConstants {
     const val PARTNERS_URL = "${API_V1_URL}partners.json"
     const val USERS_URL = "${API_V1_URL}users/1.json"
     const val PROJECTS_URL = "${API_V1_URL}projects.json"
+    const val PROVIDERS_URL = "${API_V1_URL}providers.json"
 }

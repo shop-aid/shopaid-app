@@ -5,9 +5,9 @@
     android:background="@color/blue">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
@@ -28,15 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
-                android:textSize="28sp"
+                android:text="@string/text_partners_header"
                 android:textColor="#FFFFFF"
-                android:text="The following 4120 stores joined ShopAid."/>
+                android:textSize="28sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/partners_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF"/>
+                android:background="#FFFFFF" />
 
         </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:layout_gravity="bottom"
             android:layout_margin="@dimen/spacing_normal"
             android:background="@drawable/button_normal_bg"
-            android:text="@string/text_next"
+            android:text="@string/text_done"
             android:textAllCaps="false"
             android:textColor="@android:color/black" />
 
