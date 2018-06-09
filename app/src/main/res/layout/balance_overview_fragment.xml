@@ -13,4 +13,9 @@
         android:textSize="14sp"
         android:text="Your most uspported Charity Case"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/balance_overview_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

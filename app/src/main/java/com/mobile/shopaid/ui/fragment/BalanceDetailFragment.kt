@@ -14,9 +14,8 @@ import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
 import com.mobile.shopaid.data.response.UserResponseModel
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.balance_detail_fragment.*
-import kotlinx.android.synthetic.main.partner_list_row.view.*
+import kotlinx.android.synthetic.main.balance_partner_breakdown_listrow.view.*
 
 
 class BalanceDetailFragment : Fragment() {
@@ -60,14 +59,14 @@ class BalanceDetailFragment : Fragment() {
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             fun bindData(partnerBreakdown: PartnerBreakdownResponseModel) {
-                itemView.partner_name.text = partnerBreakdown.name
-                itemView.partner_percentage.text = partnerBreakdown.amount
+                itemView.partner_breakdown_title.text = partnerBreakdown.name
+                itemView.partner_breakdown_amount.text = partnerBreakdown.amount
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartnerBreakdownAdapter.ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.partner_list_row, parent, false)
+                    .inflate(R.layout.balance_partner_breakdown_listrow, parent, false)
             return ViewHolder(view)
         }
 
