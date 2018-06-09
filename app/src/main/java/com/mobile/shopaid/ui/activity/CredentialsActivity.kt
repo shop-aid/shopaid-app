@@ -19,5 +19,4 @@ class CredentialsActivity : AppCompatActivity() {
             startActivity(intent)
         })
     }
-
 }

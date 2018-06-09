@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.partner_list_row.view.*
 import kotlinx.android.synthetic.main.partners_activity.*
+import java.math.RoundingMode
 import kotlin.properties.Delegates
 
 class PartnersActivity : BaseActivity() {
@@ -78,7 +79,7 @@ class PartnersActivity : BaseActivity() {
             fun bindData(partner: PartnerResponseModel) {
                 itemView.partner_logo.loadImage(partner.logo)
                 itemView.partner_name.text = partner.name
-                itemView.partner_percentage.text = partner.percentage.toString() + "%"
+                itemView.partner_percentage.text = partner.percentage.toBigDecimal().setScale(1, RoundingMode.HALF_UP).toString() + "%"
             }
         }
 
