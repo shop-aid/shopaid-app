@@ -1,5 +1,6 @@
 package com.mobile.shopaid.ui.activity
 
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -8,12 +9,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerResponseModel
+import com.mobile.shopaid.ui.viewmodel.PartnerViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.partner_list_row.view.*
 import kotlinx.android.synthetic.main.partners_activity.*
+import kotlin.properties.Delegates
 
 class PartnersActivity : BaseActivity() {
+
+    private val partnerViewModel by lazy {
+        PartnerViewModel.create(this)
+    }
+
+    private val partnerAdapter by lazy {
+        PartnersActivity.PartnersAdapter()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +36,39 @@ class PartnersActivity : BaseActivity() {
         partners_recyclerview.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@PartnersActivity)
-            adapter = PartnersAdapter(mutableListOf(
-                    PartnerResponseModel("test name", 0.5, "Partner name"),
-                    PartnerResponseModel("test name", 0.5, "Partner name1"),
-                    PartnerResponseModel("test name", 0.5, "Partner name2"),
-                    PartnerResponseModel("test name", 0.5, "Partner name3")
-            ))
+            adapter = partnerAdapter
         }
+
+        initObservers()
+        partnerViewModel.fetchPartners()
 
         partners_info_next.setOnClickListener({
             startActivity(Intent(this, RegistrationCompleteActivity::class.java))
         })
-
     }
 
-    class PartnersAdapter(private val partnersList: List<PartnerResponseModel>) : RecyclerView.Adapter<PartnersAdapter.ViewHolder>() {
+    private fun initObservers() {
+        partnerViewModel.partnerObservable.observe(this, Observer<ObservableResult<List<PartnerResponseModel>>> {
+            when (it) {
+                is ObservableResult.Success -> partnerAdapter.partnerList = it.data
+//                is ObservableResult.Error -> showError(it.exception.localizedMessage)
+            }
+        })
+
+        partnerViewModel.loadingObservable.observe(this, Observer {
+            toggleLoading(it ?: false)
+        })
+    }
+
+    private fun toggleLoading(isLoading: Boolean) {
+        loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    class PartnersAdapter : RecyclerView.Adapter<PartnersAdapter.ViewHolder>() {
+
+        var partnerList: List<PartnerResponseModel> by Delegates.observable(ArrayList()) { _, _, _ ->
+            notifyDataSetChanged()
+        }
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -59,10 +90,9 @@ class PartnersActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bindData(partnersList[position])
+            holder.bindData(partnerList[position])
         }
 
-        override fun getItemCount() = partnersList.count()
+        override fun getItemCount() = partnerList.count()
     }
-
 }

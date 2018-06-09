@@ -1,10 +1,11 @@
 package com.mobile.shopaid.ui.viewmodel
 
+import android.app.Activity
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.PartnerRepo
 import com.mobile.shopaid.data.repository.impl.PartnerRepoImpl
@@ -14,7 +15,7 @@ import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 class PartnerViewModel(private val partnerRepo: PartnerRepo) : ViewModel(), PartnerViewModelContract {
 
     companion object {
-        fun create(owner: Fragment): PartnerViewModel {
+        fun create(owner: FragmentActivity): PartnerViewModel {
             val factory = ViewModelFactory(PartnerViewModel(PartnerRepoImpl()))
             return ViewModelProviders.of(owner, factory).get(PartnerViewModel::class.java)
         }
