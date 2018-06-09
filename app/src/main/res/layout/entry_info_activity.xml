@@ -10,7 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <include layout="@layout/entry_info_content_layout" />
 
@@ -21,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:layout_gravity="bottom"
-        android:layout_margin="@dimen/spacing_normal"
         android:background="@drawable/button_normal_bg"
         android:text="@string/text_get_started"
         android:textAllCaps="false"
