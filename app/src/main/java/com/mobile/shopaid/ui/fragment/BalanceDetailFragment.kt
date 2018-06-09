@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.balance_detail_fragment.*
+import kotlinx.android.synthetic.main.partner_list_row.view.*
 
 
 class BalanceDetailFragment : Fragment() {
@@ -24,29 +27,31 @@ class BalanceDetailFragment : Fragment() {
 
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@BalanceDetailFragment.activity)
-            adapter = BalanceDetailAdapter()
+            adapter = PartnerBreakdownAdapter(emptyList())
         }
     }
 
-    class BalanceDetailAdapter :
-            RecyclerView.Adapter<BalanceDetailAdapter.ViewHolder>() {
+    class PartnerBreakdownAdapter(private val partnersBreakdownList: List<PartnerBreakdownResponseModel>) : RecyclerView.Adapter<PartnerBreakdownAdapter.ViewHolder>() {
 
-        // Each data item is just a string in this case that is shown in a TextView.
-        class ViewHolder(val textView: ViewGroup) : RecyclerView.ViewHolder(textView)
+        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        override fun onCreateViewHolder(parent: ViewGroup,
-                                        viewType: Int): BalanceDetailAdapter.ViewHolder {
+            fun bindData(partnerBreakdown: PartnerBreakdownResponseModel) {
+                itemView.partner_name.text = partnerBreakdown.name
+                itemView.partner_percentage.text = partnerBreakdown.amount
+            }
+        }
 
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartnerBreakdownAdapter.ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.balance_detail_list_row, parent, false) as ViewGroup
-
+                    .inflate(R.layout.partner_list_row, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//            holder.textView.text = myDataset[position]
+            holder.bindData(partnersBreakdownList[position])
         }
-        override fun getItemCount() = 15
+
+        override fun getItemCount() = partnersBreakdownList.count()
     }
 
 }
