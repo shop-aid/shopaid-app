@@ -3,6 +3,7 @@ package com.mobile.shopaid.ui.fragment
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -18,7 +19,9 @@ import com.mobile.shopaid.data.response.UserResponseModel
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_detail_fragment.*
+import kotlinx.android.synthetic.main.balance_overview_fragment.*
 import kotlinx.android.synthetic.main.balance_partner_breakdown_listrow.view.*
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
 
 class BalanceDetailFragment : Fragment() {
@@ -53,13 +56,13 @@ class BalanceDetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(this@BalanceDetailFragment.activity)
             adapter = PartnerBreakdownAdapter(userResponseModel.partner_breakdown)
         }
-
+        val dividerItemDecoration = DividerItemDecoration(activity,
+                (balance_overview_recyclerview.layoutManager as LinearLayoutManager).orientation)
+        balance_detail_recyclerview.addItemDecoration(dividerItemDecoration)
     }
 
 
     class PartnerBreakdownAdapter(private val partnersBreakdownList: List<PartnerBreakdownResponseModel>) : RecyclerView.Adapter<PartnerBreakdownAdapter.ViewHolder>() {
-
-
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -74,7 +77,7 @@ class BalanceDetailFragment : Fragment() {
 
                         params.width = (itemView.breakdown_listrow_container.width * partnerBreakdown.percentage)/100
                         itemView.partner_breakdown_indicator.layoutParams = params
-
+                        CalligraphyUtils.applyFontToTextView(itemView.context, itemView.partner_breakdown_amount, "fonts/avenirnextdemibold.ttf")
                         return true
                     }
 

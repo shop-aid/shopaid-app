@@ -20,15 +20,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingTop="@dimen/spacing_normal_s"
+        android:paddingBottom="@dimen/spacing_normal_s">
 
         <TextView
             android:id="@+id/partner_breakdown_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="#FF2A283F"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingLeft="16dp"
@@ -38,7 +38,7 @@
             android:id="@+id/partner_breakdown_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_big"
             android:layout_gravity="center_vertical"
             android:paddingRight="16dp"
             android:textColor="#FF2A283F"

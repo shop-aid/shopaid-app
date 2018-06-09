@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_gigantic"
+            android:textSize="36sp"
             android:textColor="@color/blue"
             android:layout_marginTop="16dp"
             android:text="Do you want to link your bank account to see how much the shops have donated to your charity?"/>
