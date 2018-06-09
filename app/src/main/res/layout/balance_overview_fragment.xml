@@ -13,6 +13,31 @@
         android:textSize="14sp"
         android:text="Your most uspported Charity Case"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="19dp"
+            android:orientation="vertical">
+
+            <include android:id="@+id/percentage_row1_container" layout="@layout/balance_percentage_row"/>
+            <include android:id="@+id/percentage_row2_container" layout="@layout/balance_percentage_row"/>
+            <include android:id="@+id/percentage_row3_container" layout="@layout/balance_percentage_row"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/balance_overview_recyclerview"
         android:layout_width="match_parent"

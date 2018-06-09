@@ -17,8 +17,7 @@ import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_cause_breakdown_listrow.view.*
 import kotlinx.android.synthetic.main.balance_overview_fragment.*
 import android.support.v7.widget.DividerItemDecoration
-
-
+import android.widget.TextView
 
 
 class BalanceOverviewFragment : Fragment() {
@@ -46,6 +45,14 @@ class BalanceOverviewFragment : Fragment() {
     }
 
     private fun init(userResponseModel : UserResponseModel) {
+        (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[0].percentage.toString() + "%"
+        (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[1].percentage.toString() + "%"
+        (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[2].percentage.toString() + "%"
+        (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[0].name
+        (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[1].name
+        (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
+
+
         balance_overview_recyclerview.apply {
 
             setHasFixedSize(true)
