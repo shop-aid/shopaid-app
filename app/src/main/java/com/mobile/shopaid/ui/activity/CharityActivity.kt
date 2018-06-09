@@ -69,8 +69,8 @@ class CharityActivity : BaseActivity(), FragmentItemToggleListener {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position) {
-                0 -> "projects"
-                else -> "causes"
+                0 -> "Projects"
+                else -> "Pauses"
             }
         }
     }

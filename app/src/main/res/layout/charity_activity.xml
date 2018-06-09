@@ -27,7 +27,7 @@
             android:paddingBottom="@dimen/spacing_normal_s"
             android:text="@string/text_charity_header"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_gigantic" />
+            android:textSize="32sp" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/cause_sliding_tabs"
@@ -37,6 +37,7 @@
             app:tabBackground="@drawable/tab_color_selector"
             app:tabIndicatorColor="@color/pink"
             app:tabMode="fixed"
+            app:tabTextAppearance="@style/CustomTabAppearance"
             app:tabSelectedTextColor="@color/pink"
             app:tabTextColor="@color/dark_blue" />
 
@@ -63,10 +64,10 @@
                 android:id="@+id/charitySelectedView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_tiny"
+                android:layout_marginBottom="@dimen/spacing_small"
                 android:layout_marginLeft="@dimen/spacing_normal"
                 android:layout_marginRight="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_tiny"
+                android:layout_marginTop="@dimen/spacing_normal_s"
                 android:textColor="@color/white" />
 
             <Button

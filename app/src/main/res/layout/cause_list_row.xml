@@ -84,7 +84,8 @@
                 android:id="@+id/cause_item_description_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_normal" />
+                android:padding="@dimen/spacing_normal"
+                android:textSize="18sp"/>
 
             <ImageView
                 android:id="@+id/cause_details_button"

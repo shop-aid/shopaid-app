@@ -13,7 +13,7 @@
     <string name="text_charity_header">To whom would you like to contribute?</string>
     <string name="text_next">Next</string>
     <string name="text_done">Done</string>
-    <string name="text_selected">Selected: %d</string>
+    <string name="text_selected">%d causes selected</string>
     <string name="text_registration_complete">You\'re all set. Start shopping while making the world a better place</string>
     <string name="text_partners_header">These shops donate when you shop.</string>
     <string name="text_select_bank">Please select your bank…</string>
