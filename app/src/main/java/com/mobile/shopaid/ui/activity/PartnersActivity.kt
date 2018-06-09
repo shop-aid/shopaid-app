@@ -78,7 +78,7 @@ class PartnersActivity : BaseActivity() {
             fun bindData(partner: PartnerResponseModel) {
                 itemView.partner_logo.loadImage(partner.logo)
                 itemView.partner_name.text = partner.name
-                itemView.partner_percentage.text = partner.percentage.toString()
+                itemView.partner_percentage.text = partner.percentage.toString() + "%"
             }
         }
 
