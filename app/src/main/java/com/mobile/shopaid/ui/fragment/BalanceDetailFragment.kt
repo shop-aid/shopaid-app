@@ -35,7 +35,7 @@ class BalanceDetailFragment : Fragment() {
     }
 
     private fun initObservers() {
-        balanceViewModel.userbservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
+        balanceViewModel.userObservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
             when (it) {
                 is ObservableResult.Success -> init(it.data)
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)

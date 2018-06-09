@@ -4,152 +4,159 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF5C83FC">
-
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:lineSpacingMultiplier="1.36"
-            style="@style/shopaid_textstyle"
-            android:text="Your Charity Balance™"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/balance_amount"
-            android:gravity="center"
-            android:height="61dp"
-            android:textSize="48sp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:lineSpacingMultiplier="1.38"
-            android:textStyle="bold"
-            style="@style/shopaid_textstyle"
-            android:textColor="#FF2AFEC9"
-            android:width="317dp" />
-
+        android:layout_height="wrap_content"
+        android:id="@+id/swipe">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_height="match_parent"
+            android:background="#FF5C83FC">
 
-            <FrameLayout
-                android:id="@+id/balance_period_alltime"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.36"
+                style="@style/shopaid_textstyle"
+                android:text="Your Charity Balance™"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"/>
 
-                <TextView
-                    android:id="@+id/balance_period_alltime_text"
+            <TextView
+                android:id="@+id/balance_amount"
+                android:gravity="center"
+                android:height="61dp"
+                android:textSize="48sp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:lineSpacingMultiplier="1.38"
+                android:textStyle="bold"
+                style="@style/shopaid_textstyle"
+                android:textColor="#FF2AFEC9"
+                android:width="317dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <FrameLayout
+                    android:id="@+id/balance_period_alltime"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:lineSpacingMultiplier="1.33"
-                    android:textColor="#FFFFFF"
-                    style="@style/shopaid_textstyle"
-                    android:textSize="12sp"
-                    android:text="All Time"
-                    android:width="48dp" />
+                    android:layout_weight="1">
 
-            </FrameLayout>
+                    <TextView
+                        android:id="@+id/balance_period_alltime_text"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.33"
+                        android:textColor="#FFFFFF"
+                        style="@style/shopaid_textstyle"
+                        android:textSize="12sp"
+                        android:text="All Time"
+                        android:width="48dp" />
 
-            <FrameLayout
-                android:id="@+id/balance_period_year"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                </FrameLayout>
 
-                <TextView
-                    android:id="@+id/balance_period_year_text"
+                <FrameLayout
+                    android:id="@+id/balance_period_year"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"
-                    android:lineSpacingMultiplier="1.33"
-                    style="@style/shopaid_textstyle"
-                    android:textSize="12sp"
-                    android:text="Year"
-                    android:width="48dp" />
-            </FrameLayout>
+                    android:layout_weight="1">
 
-            <FrameLayout
-                android:id="@+id/balance_period_month"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/balance_period_year_text"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.33"
+                        style="@style/shopaid_textstyle"
+                        android:textSize="12sp"
+                        android:text="Year"
+                        android:width="48dp" />
+                </FrameLayout>
 
-                <TextView
-                    android:id="@+id/balance_period_month_text"
+                <FrameLayout
+                    android:id="@+id/balance_period_month"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"
-                    android:lineSpacingMultiplier="1.33"
-                    style="@style/shopaid_textstyle"
-                    android:textSize="12sp"
-                    android:text="Month"
-                    android:width="48dp" />
-            </FrameLayout>
+                    android:layout_weight="1">
 
-            <FrameLayout
-                android:id="@+id/balance_period_week"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/balance_period_month_text"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.33"
+                        style="@style/shopaid_textstyle"
+                        android:textSize="12sp"
+                        android:text="Month"
+                        android:width="48dp" />
+                </FrameLayout>
 
-                <TextView
-                    android:id="@+id/balance_period_week_text"
+                <FrameLayout
+                    android:id="@+id/balance_period_week"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"
-                    android:lineSpacingMultiplier="1.33"
-                    style="@style/shopaid_textstyle"
-                    android:textSize="12sp"
-                    android:text="Week"
-                    android:width="48dp" />
-            </FrameLayout>
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/balance_period_week_text"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.33"
+                        style="@style/shopaid_textstyle"
+                        android:textSize="12sp"
+                        android:text="Week"
+                        android:width="48dp" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="32dp"
+                android:background="#DE000000"/>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/balannce_sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                app:tabTextAppearance="@style/CustomTabAppearance"
+                app:tabIndicatorColor="#FFFB58BB"
+                app:tabTextColor="#FF2A283F"
+                app:tabSelectedTextColor="#FFFB58BB"
+                app:tabBackground="@drawable/tab_color_selector"
+                app:tabMode="fixed" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/balance_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                />
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="32dp"
-            android:background="#DE000000"/>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/balannce_sliding_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            app:tabTextAppearance="@style/CustomTabAppearance"
-            app:tabIndicatorColor="#FFFB58BB"
-            app:tabTextColor="#FF2A283F"
-            app:tabSelectedTextColor="#FFFB58BB"
-            app:tabBackground="@drawable/tab_color_selector"
-            app:tabMode="fixed" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/balance_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            />
-
-    </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <include
         layout="@layout/loading_layout"

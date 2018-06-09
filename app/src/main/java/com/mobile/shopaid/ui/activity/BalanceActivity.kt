@@ -33,9 +33,9 @@ class BalanceActivity : BaseActivity() {
     }
 
     private fun initObservers() {
-        balanceViewModel.userbservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
+        balanceViewModel.userObservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
             when (it) {
-                is ObservableResult.Success -> init(it.data)
+                is ObservableResult.Success -> populateUI(it.data)
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
@@ -49,9 +49,10 @@ class BalanceActivity : BaseActivity() {
         loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun init(userModel : UserResponseModel) {
+    private fun populateUI(userModel : UserResponseModel) {
         CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
+
         balance_amount.text = userModel.charity_balance
         balannce_sliding_tabs.setupWithViewPager(balance_viewpager)
 
@@ -69,6 +70,11 @@ class BalanceActivity : BaseActivity() {
         })
 
         selectPeriod(0)
+
+        swipe.isRefreshing = false
+        swipe.setOnRefreshListener {
+            balanceViewModel.fetchUser()
+        }
     }
 
     private fun selectPeriod(selectedIndex: Int) {

@@ -4,9 +4,7 @@ import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
-import android.support.v4.app.SupportActivity
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.UserRepo
 import com.mobile.shopaid.data.repository.impl.UserRepoImpl
@@ -28,7 +26,7 @@ class BalanceViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceVie
         }
     }
 
-    val userbservable by lazy {
+    val userObservable by lazy {
         MediatorLiveData<ObservableResult<UserResponseModel>>()
     }
 
@@ -43,10 +41,10 @@ class BalanceViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceVie
 
     private fun fetchUsersInternal() {
         val repoData = userRepo.fetchUser()
-        userbservable.addSource(repoData) {
+        userObservable.addSource(repoData) {
             loadingObservable.value = false
-            userbservable.value = it
-            userbservable.removeSource(repoData)
+            userObservable.value = it
+            userObservable.removeSource(repoData)
         }
     }
 }
