@@ -5,33 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Charity balance"/>
 
     <TextView
-        android:id="@+id/balance_amount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="@dimen/text_huge"
-        android:text="E231,20" />
+        android:height="21dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:lineSpacingMultiplier="1.36"
+        android:style="@style/shopaid_textstyle"
+        android:text="Your Charity Balance™"
+        android:textSize="14sp"
+        android:width="287dp" />
 
     <TextView
-        android:id="@+id/balance_amount_updated"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="16sp"
-        android:text="E3,10" />
+        android:height="61dp"
+        android:textSize="48sp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:lineSpacingMultiplier="1.38"
+        android:style="@style/shopaid_textstyle"
+        android:text="€ 231,20"
+        android:width="317dp" />
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:text="since all-time" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:height="16dp"
+                android:lineSpacingMultiplier="1.33"
+                android:style="@style/shopaid_textstyle"
+                android:textSize="12sp"
+                android:text="All Time"
+                android:width="48dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:height="16dp"
+                android:lineSpacingMultiplier="1.33"
+                android:style="@style/shopaid_textstyle"
+                android:textSize="12sp"
+                android:text="Year"
+                android:width="48dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:height="16dp"
+                android:lineSpacingMultiplier="1.33"
+                android:style="@style/shopaid_textstyle"
+                android:textSize="12sp"
+                android:text="Month"
+                android:width="48dp" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:height="16dp"
+                android:lineSpacingMultiplier="1.33"
+                android:style="@style/shopaid_textstyle"
+                android:textSize="12sp"
+                android:text="Week"
+                android:width="48dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="#DE000000"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/balannce_sliding_tabs"
