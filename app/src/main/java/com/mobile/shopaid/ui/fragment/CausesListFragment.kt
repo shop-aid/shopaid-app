@@ -2,7 +2,6 @@ package com.mobile.shopaid.ui.fragment
 
 import android.arch.lifecycle.Observer
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -15,14 +14,10 @@ import com.mobile.shopaid.data.listener.FragmentItemToggleListener
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseResponseModel
 import com.mobile.shopaid.extensions.*
-import com.mobile.shopaid.ui.activity.CharityActivity
-import com.mobile.shopaid.ui.activity.PartnersActivity
-import com.mobile.shopaid.ui.viewmodel.CausesViewModel
-import kotlinx.android.synthetic.main.balance_activity.*
+import com.mobile.shopaid.ui.viewmodel.impl.CausesViewModel
 import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import kotlin.properties.Delegates
 

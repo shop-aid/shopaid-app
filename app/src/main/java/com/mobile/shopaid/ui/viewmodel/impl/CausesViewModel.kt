@@ -1,4 +1,4 @@
-package com.mobile.shopaid.ui.viewmodel
+package com.mobile.shopaid.ui.viewmodel.impl
 
 import android.arch.lifecycle.*
 import android.support.v4.app.Fragment
@@ -6,6 +6,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.CharityRepo
 import com.mobile.shopaid.data.repository.impl.CharityRepoImpl
 import com.mobile.shopaid.data.response.CauseResponseModel
+import com.mobile.shopaid.ui.viewmodel.CausesViewModelContract
 import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 
 /**

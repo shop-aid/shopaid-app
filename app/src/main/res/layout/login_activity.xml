@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_login_email"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_gigantic" />
+                    android:textSize="@dimen/text_48" />
 
                 <EditText
                     android:id="@+id/login_email"
@@ -36,14 +36,17 @@
                     android:layout_marginTop="@dimen/spacing_normal"
                     android:background="@drawable/edit_text_bg"
                     android:hint="@string/text_email"
-                    android:padding="@dimen/spacing_normal_s" />
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/spacing_normal_s"
+                    android:textColorHint="@color/dark_blue"
+                    android:textCursorDrawable="@null" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_login_email_explanation"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_20" />
 
             </LinearLayout>
 

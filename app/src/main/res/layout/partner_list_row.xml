@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/text_big"
+                android:textSize="@dimen/text_24"
                 tools:text="Test partner name" />
 
             <LinearLayout

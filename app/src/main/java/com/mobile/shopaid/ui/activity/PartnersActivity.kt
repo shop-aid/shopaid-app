@@ -3,7 +3,6 @@ package com.mobile.shopaid.ui.activity
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
@@ -14,8 +13,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerResponseModel
 import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
-import com.mobile.shopaid.ui.viewmodel.PartnerViewModel
-import com.squareup.picasso.Picasso
+import com.mobile.shopaid.ui.viewmodel.impl.PartnerViewModel
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.partner_list_row.view.*
 import kotlinx.android.synthetic.main.partners_activity.*

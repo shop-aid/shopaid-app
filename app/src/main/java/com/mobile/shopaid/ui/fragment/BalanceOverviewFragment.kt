@@ -15,7 +15,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.CauseBreakdownReponseModel
 import com.mobile.shopaid.data.response.UserResponseModel
 import com.mobile.shopaid.extensions.showError
-import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
+import com.mobile.shopaid.ui.viewmodel.impl.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_cause_breakdown_listrow.view.*
 import kotlinx.android.synthetic.main.balance_overview_fragment.*
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils

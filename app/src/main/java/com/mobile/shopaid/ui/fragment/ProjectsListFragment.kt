@@ -15,7 +15,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.ProjectsResponseModel
 import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
-import com.mobile.shopaid.ui.viewmodel.ProjectsViewModel
+import com.mobile.shopaid.ui.viewmodel.impl.ProjectsViewModel
 import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.cause_list_row.view.*
 import kotlinx.android.synthetic.main.loading_layout.*

@@ -3,7 +3,6 @@ package com.mobile.shopaid.ui.activity
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -11,11 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.listener.OnListItemClickListener
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.BanksResponseModel
 import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
-import com.mobile.shopaid.ui.viewmodel.ProvidersViewModel
+import com.mobile.shopaid.ui.viewmodel.impl.ProvidersViewModel
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.select_bank_activity.*
 import kotlinx.android.synthetic.main.select_bank_list_row.view.*
@@ -27,14 +27,14 @@ import kotlin.properties.Delegates
  * At: 19:19
  */
 
-class SelectBankActivity : BaseActivity() {
+class SelectBankActivity : BaseActivity(), OnListItemClickListener<BanksResponseModel> {
 
     private val providersViewModel by lazy {
         ProvidersViewModel.create(this)
     }
 
     private val providersAdapter by lazy {
-        BanksAdapter()
+        BanksAdapter(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +45,6 @@ class SelectBankActivity : BaseActivity() {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             adapter = providersAdapter
-        }
-
-        root.setOnClickListener {
-            startActivity(Intent(this@SelectBankActivity, CredentialsActivity::class.java))
         }
 
         initObservers()
@@ -68,11 +64,15 @@ class SelectBankActivity : BaseActivity() {
         })
     }
 
+    override fun onItemClicked(position: Int, item: BanksResponseModel) {
+        startActivity(Intent(this, CredentialsActivity::class.java))
+    }
+
     private fun toggleLoading(isLoading: Boolean) {
         loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    class BanksAdapter : RecyclerView.Adapter<BanksAdapter.ViewHolder>() {
+    class BanksAdapter(val listener: OnListItemClickListener<BanksResponseModel>) : RecyclerView.Adapter<BanksAdapter.ViewHolder>() {
 
         var bankList: List<BanksResponseModel> by Delegates.observable(ArrayList()) { _, _, _ ->
             notifyDataSetChanged()
@@ -90,7 +90,15 @@ class SelectBankActivity : BaseActivity() {
 
         override fun getItemCount() = bankList.count()
 
-        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+
+            init {
+                itemView.setOnClickListener(this)
+            }
+
+            override fun onClick(v: View?) {
+                listener.onItemClicked(adapterPosition, bankList[adapterPosition])
+            }
 
             fun bindData(bank: BanksResponseModel) {
                 itemView.bank_name.text = bank.name

@@ -48,7 +48,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textColor="@android:color/black"
-                                android:textSize="@dimen/text_big" />
+                                android:textSize="@dimen/text_24" />
 
                             <TextView
                                 android:id="@+id/cause_sub_text"

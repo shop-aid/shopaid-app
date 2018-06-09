@@ -18,4 +18,10 @@
     <string name="text_partners_header">These shops donate when you shop.</string>
     <string name="text_select_bank">Please select your bank…</string>
     <string name="text_select_bank_header">Select the bank you use for shopping:</string>
+    <string name="text_credentials_header">…and login with your credentials</string>
+    <string name="text_username">Username</string>
+    <string name="text_password">Password</string>
+    <string name="text_gdpr">Your data will be protected and will never be shared.</string>
+    <string name="text_link_bank_account">Do you want to link your bank account to see how much the shops have donated to your charity?</string>
+    <string name="text_yes_please">Yes, please!</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.mobile.shopaid.ui.viewmodel
+package com.mobile.shopaid.ui.viewmodel.impl
 
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
@@ -9,6 +9,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.UserRepo
 import com.mobile.shopaid.data.repository.impl.UserRepoImpl
 import com.mobile.shopaid.data.response.UserResponseModel
+import com.mobile.shopaid.ui.viewmodel.BalanceViewModelContract
 import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 
 /**

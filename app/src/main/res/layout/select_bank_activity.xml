@@ -3,41 +3,58 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/blue"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:src="@drawable/img_header" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue"
-        android:padding="@dimen/spacing_normal_s"
+        android:paddingBottom="@dimen/spacing_normal_s"
+        android:paddingLeft="@dimen/spacing_normal_s"
+        android:paddingRight="@dimen/spacing_normal_s"
         android:text="@string/text_select_bank"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_gigantic" />
+        android:textSize="@dimen/text_48" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_normal"
-        android:text="@string/text_select_bank_header"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/text_normal" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/banks_list_view"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/spacing_normal"
-            android:layout_marginRight="@dimen/spacing_normal" />
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/text_select_bank_header"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_20" />
 
-        <include
-            layout="@layout/loading_layout"
-            android:visibility="gone" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/banks_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal" />
+
+            <include
+                layout="@layout/loading_layout"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

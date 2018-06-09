@@ -14,7 +14,7 @@ import com.mobile.shopaid.data.response.UserResponseModel
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
-import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
+import com.mobile.shopaid.ui.viewmodel.impl.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_activity.*
 import kotlinx.android.synthetic.main.balance_empty_state.*
 import kotlinx.android.synthetic.main.loading_layout.*

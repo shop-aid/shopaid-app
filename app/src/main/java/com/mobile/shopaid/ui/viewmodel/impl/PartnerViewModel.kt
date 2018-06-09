@@ -1,6 +1,5 @@
-package com.mobile.shopaid.ui.viewmodel
+package com.mobile.shopaid.ui.viewmodel.impl
 
-import android.app.Activity
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
@@ -10,6 +9,7 @@ import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.repository.PartnerRepo
 import com.mobile.shopaid.data.repository.impl.PartnerRepoImpl
 import com.mobile.shopaid.data.response.PartnerResponseModel
+import com.mobile.shopaid.ui.viewmodel.PartnerViewModelContract
 import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 
 class PartnerViewModel(private val partnerRepo: PartnerRepo) : ViewModel(), PartnerViewModelContract {
