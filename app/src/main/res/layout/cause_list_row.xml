@@ -27,9 +27,8 @@
                     <ImageView
                         android:id="@+id/cause_image"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/logo" />
+                        android:layout_height="@dimen/item_image_height"
+                        android:scaleType="centerCrop" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -62,6 +61,8 @@
                             android:id="@+id/cause_logo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_normal"
+                            android:layout_marginStart="@dimen/spacing_normal"
                             android:scaleType="centerInside" />
 
                     </LinearLayout>
@@ -72,8 +73,8 @@
                     android:id="@+id/select_item_view"
                     android:layout_width="@dimen/item_selector_dimen"
                     android:layout_height="@dimen/item_selector_dimen"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="@dimen/spacing_huge"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_checkmark_unselected" />
 

@@ -96,6 +96,7 @@ class ProjectsListFragment : Fragment() {
                 itemView.cause_item_description_container.text = cause.description
                 itemView.select_item_view.setImageResource(if (cause.isActive)
                     R.drawable.icon_checkmark_selected else R.drawable.icon_checkmark_unselected)
+                itemView.cause_sub_text.visibility = if (cause.category.isEmpty()) View.GONE else View.VISIBLE
             }
         }
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -18,7 +20,8 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_normal"
         android:text="@string/text_select_bank_header"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_normal" />
 
     <FrameLayout
         android:layout_width="match_parent"

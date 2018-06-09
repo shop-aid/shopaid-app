@@ -1,7 +1,10 @@
 package com.mobile.shopaid.ui.activity
 
 import android.arch.lifecycle.Observer
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -10,11 +13,9 @@ import android.view.ViewGroup
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.BanksResponseModel
-import com.mobile.shopaid.data.response.CauseResponseModel
 import com.mobile.shopaid.extensions.loadImage
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.ProvidersViewModel
-import kotlinx.android.synthetic.main.causes_list_fragment.*
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.select_bank_activity.*
 import kotlinx.android.synthetic.main.select_bank_list_row.view.*
@@ -42,7 +43,12 @@ class SelectBankActivity : BaseActivity() {
 
         banks_list_view.apply {
             layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             adapter = providersAdapter
+        }
+
+        root.setOnClickListener {
+            startActivity(Intent(this@SelectBankActivity, CredentialsActivity::class.java))
         }
 
         initObservers()

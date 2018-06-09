@@ -26,7 +26,7 @@ class BalanceActivity : BaseActivity() {
 
         const val EXTRA_SHOW_BALANCE = "extra_show_balance"
 
-        fun getStartIntent(context : Context, showBalance : Boolean) : Intent {
+        fun getStartIntent(context: Context, showBalance: Boolean): Intent {
             val intent = Intent(context, BalanceActivity::class.java)
             intent.putExtra(EXTRA_SHOW_BALANCE, showBalance)
             return intent
@@ -46,8 +46,8 @@ class BalanceActivity : BaseActivity() {
             balanceViewModel.fetchUser()
         } else {
             setContentView(R.layout.balance_empty_state)
-            balance_empty_state_selectbank.setOnClickListener( {
-                startActivity(Intent(this, CredentialsActivity::class.java))
+            balance_empty_state_selectbank.setOnClickListener({
+                startActivity(Intent(this, SelectBankActivity::class.java))
             })
         }
     }
@@ -69,7 +69,7 @@ class BalanceActivity : BaseActivity() {
         loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun populateUI(userModel : UserResponseModel) {
+    private fun populateUI(userModel: UserResponseModel) {
         CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
 
@@ -120,8 +120,8 @@ class BalanceActivity : BaseActivity() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position) {
-                0-> "Overview"
-                else-> "Transactions"
+                0 -> "Overview"
+                else -> "Transactions"
             }
         }
     }
