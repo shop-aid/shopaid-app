@@ -36,8 +36,9 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withId(R.id.entryInfoNextButton))).perform(click())
         onView(withId(R.id.login_email)).perform(typeText("petarboy69@icemobile.com"))
         onView(allOf<View>(withId(R.id.login_sign_in_button))).perform(click())
-        onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
-        onView(allOf<View>(withId(R.id.iban_next))).perform(click())
+//        Thread.sleep(10000)
+//        onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
+//        onView(allOf<View>(withId(R.id.iban_next))).perform(click())
 
         Thread.sleep(1000)
 //        onView(allOf(withText("projects"))).perform(click())
