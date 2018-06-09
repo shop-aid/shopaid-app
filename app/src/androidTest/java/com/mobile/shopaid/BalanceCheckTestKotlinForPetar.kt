@@ -39,7 +39,7 @@ class BalanceCheckTestKotlinForPetar {
         onView(withId(R.id.iban_iban_edittext)).perform(typeText("NL11INGB0008249866"))
         onView(allOf<View>(withId(R.id.iban_next))).perform(click())
 
-        Thread.sleep(500)
+        Thread.sleep(1000)
 //        onView(allOf(withText("projects"))).perform(click())
 //        Thread.sleep(1000)
 //        onView(allOf(withText("causes"))).perform(click())
@@ -62,7 +62,7 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withText("detail"))).perform(click())
         Thread.sleep(1000)
         onView(allOf<View>(withText("overview"))).perform(click())
-
+        Thread.sleep(100000)
         onView(allOf<View>(withId(R.id.balance_period_year))).perform(click())
         Thread.sleep(1000)
         onView(allOf<View>(withId(R.id.balance_period_month))).perform(click())

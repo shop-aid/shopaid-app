@@ -1,5 +1,6 @@
 package com.mobile.shopaid.ui.fragment
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,13 +9,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mobile.shopaid.R
+import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerBreakdownResponseModel
+import com.mobile.shopaid.data.response.UserResponseModel
+import com.mobile.shopaid.extensions.showError
+import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.balance_detail_fragment.*
 import kotlinx.android.synthetic.main.partner_list_row.view.*
 
 
 class BalanceDetailFragment : Fragment() {
+
+    private val balanceViewModel by lazy {
+        BalanceViewModel.create(activity)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.balance_detail_fragment, container, false)
@@ -23,13 +32,28 @@ class BalanceDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initObservers()
+    }
+
+    private fun initObservers() {
+        balanceViewModel.userbservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
+            when (it) {
+                is ObservableResult.Success -> init(it.data)
+                is ObservableResult.Error -> showError(it.exception.localizedMessage)
+            }
+        })
+    }
+
+    private fun init(userResponseModel : UserResponseModel) {
         balance_detail_recyclerview.apply {
 
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@BalanceDetailFragment.activity)
-            adapter = PartnerBreakdownAdapter(emptyList())
+            adapter = PartnerBreakdownAdapter(userResponseModel.partner_breakdown)
         }
+
     }
+
 
     class PartnerBreakdownAdapter(private val partnersBreakdownList: List<PartnerBreakdownResponseModel>) : RecyclerView.Adapter<PartnerBreakdownAdapter.ViewHolder>() {
 

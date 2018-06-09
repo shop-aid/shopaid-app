@@ -22,9 +22,9 @@ import com.mobile.shopaid.ui.viewmodel.factory.ViewModelFactory
 class BalanceViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceViewModelContract {
 
     companion object {
-        fun create(owner: FragmentActivity): BalanceViewModel {
+        fun create(owner: FragmentActivity?): BalanceViewModel {
             val factory = ViewModelFactory(BalanceViewModel(UserRepoImpl()))
-            return ViewModelProviders.of(owner, factory).get(BalanceViewModel::class.java)
+            return ViewModelProviders.of(owner!!, factory).get(BalanceViewModel::class.java)
         }
     }
 
