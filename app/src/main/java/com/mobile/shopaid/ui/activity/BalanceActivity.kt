@@ -15,6 +15,7 @@ import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
 import com.mobile.shopaid.ui.viewmodel.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_activity.*
 import kotlinx.android.synthetic.main.loading_layout.*
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
 class BalanceActivity : BaseActivity() {
 
@@ -34,7 +35,7 @@ class BalanceActivity : BaseActivity() {
     private fun initObservers() {
         balanceViewModel.userbservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
             when (it) {
-                is ObservableResult.Success -> init()
+                is ObservableResult.Success -> init(it.data)
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
@@ -48,9 +49,10 @@ class BalanceActivity : BaseActivity() {
         loadingLayout.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun init() {
+    private fun init(userModel : UserResponseModel) {
+        CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
-
+        balance_amount.text = userModel.charity_balance
         balannce_sliding_tabs.setupWithViewPager(balance_viewpager)
 
         balance_period_alltime.setOnClickListener({
@@ -92,8 +94,8 @@ class BalanceActivity : BaseActivity() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position) {
-                0-> "overview"
-                else-> "detail"
+                0-> "Overview"
+                else-> "Transactions"
             }
         }
     }

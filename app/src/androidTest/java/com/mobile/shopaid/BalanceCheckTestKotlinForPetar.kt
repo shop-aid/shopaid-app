@@ -59,9 +59,9 @@ class BalanceCheckTestKotlinForPetar {
         onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
 
         Thread.sleep(10000)
-        onView(allOf<View>(withText("detail"))).perform(click())
+        onView(allOf<View>(withText("Transactions"))).perform(click())
         Thread.sleep(1000)
-        onView(allOf<View>(withText("overview"))).perform(click())
+        onView(allOf<View>(withText("Overview"))).perform(click())
         Thread.sleep(100000)
         onView(allOf<View>(withId(R.id.balance_period_year))).perform(click())
         Thread.sleep(1000)

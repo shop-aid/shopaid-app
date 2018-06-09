@@ -22,14 +22,15 @@
             android:layout_marginTop="16dp"/>
 
         <TextView
+            android:id="@+id/balance_amount"
             android:gravity="center"
             android:height="61dp"
             android:textSize="48sp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:lineSpacingMultiplier="1.38"
+            android:textStyle="bold"
             style="@style/shopaid_textstyle"
-            android:text="€ 231,20"
             android:textColor="#FF2AFEC9"
             android:width="317dp" />
 
