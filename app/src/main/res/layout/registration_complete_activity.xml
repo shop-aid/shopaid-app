@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_normal">
 
     <TextView
-        android:id="@+id/registration_complete_next"
+        android:id="@+id/registrationCompleteTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You're all set!"/>
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing_huge"
+        android:layout_weight="1"
+        android:text="@string/text_registration_complete"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_gigantic" />
 
 </LinearLayout>

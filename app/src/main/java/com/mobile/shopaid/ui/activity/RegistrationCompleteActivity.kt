@@ -12,7 +12,7 @@ class RegistrationCompleteActivity : BaseActivity() {
 
         setContentView(R.layout.registration_complete_activity)
 
-        registration_complete_next.setOnClickListener({
+        registrationCompleteTextView.setOnClickListener({
             startActivity(Intent(this, BalanceActivity::class.java))
         })
     }

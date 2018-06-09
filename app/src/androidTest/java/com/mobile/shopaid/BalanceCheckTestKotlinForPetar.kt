@@ -15,6 +15,7 @@ import com.mobile.shopaid.ui.activity.SplashActivity
 import com.mobile.shopaid.ui.fragment.CausesListFragment
 import junit.framework.Assert.assertTrue
 import kotlinx.android.synthetic.main.balance_activity.*
+import kotlinx.android.synthetic.main.registration_complete_activity.*
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
 import org.junit.Test
@@ -57,7 +58,7 @@ class BalanceCheckTestKotlinForPetar {
                         RecyclerViewActions.scrollToPosition<PartnersActivity.PartnersAdapter.ViewHolder>(5),
                         RecyclerViewActions.actionOnItemAtPosition<PartnersActivity.PartnersAdapter.ViewHolder>(5, click()))
         onView(allOf<View>(withId(R.id.partners_info_next))).perform(click())
-        onView(allOf<View>(withId(R.id.registration_complete_next))).perform(click())
+        onView(allOf<View>(withId(R.id.registrationCompleteTextView))).perform(click())
 
         Thread.sleep(10000)
         onView(allOf<View>(withText("Transactions"))).perform(click())
