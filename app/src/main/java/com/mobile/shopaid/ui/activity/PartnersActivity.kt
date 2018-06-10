@@ -11,8 +11,7 @@ import android.view.ViewGroup
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.PartnerResponseModel
-import com.mobile.shopaid.extensions.loadImage
-import com.mobile.shopaid.extensions.showError
+import com.mobile.shopaid.extensions.*
 import com.mobile.shopaid.ui.viewmodel.impl.PartnerViewModel
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.partner_list_row.view.*
@@ -21,6 +20,10 @@ import java.math.RoundingMode
 import kotlin.properties.Delegates
 
 class PartnersActivity : BaseActivity() {
+
+    companion object {
+        private const val DELAY_ANIMATION = 1500L
+    }
 
     private val partnerViewModel by lazy {
         PartnerViewModel.create(this)
@@ -53,6 +56,9 @@ class PartnersActivity : BaseActivity() {
         partnerViewModel.partnerObservable.observe(this, Observer<ObservableResult<List<PartnerResponseModel>>> {
             when (it) {
                 is ObservableResult.Success -> {
+                    root.waitForView {
+                        animateView(getFadeInAnimator(DELAY_ANIMATION))
+                    }
                     partnerAdapter.partnerList = it.data
                 }
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)

@@ -13,8 +13,7 @@ import com.mobile.shopaid.R
 import com.mobile.shopaid.data.listener.OnListItemClickListener
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.BanksResponseModel
-import com.mobile.shopaid.extensions.loadImage
-import com.mobile.shopaid.extensions.showError
+import com.mobile.shopaid.extensions.*
 import com.mobile.shopaid.ui.viewmodel.impl.ProvidersViewModel
 import kotlinx.android.synthetic.main.loading_layout.*
 import kotlinx.android.synthetic.main.select_bank_activity.*
@@ -29,6 +28,10 @@ import kotlin.properties.Delegates
 
 class SelectBankActivity : BaseActivity(), OnListItemClickListener<BanksResponseModel> {
 
+    companion object {
+        private const val DELAY_ANIMATION = 1500L
+    }
+
     private val providersViewModel by lazy {
         ProvidersViewModel.create(this)
     }
@@ -40,6 +43,8 @@ class SelectBankActivity : BaseActivity(), OnListItemClickListener<BanksResponse
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_bank_activity)
+
+        root.waitForView { animateView(getFadeInAnimator(DELAY_ANIMATION)) }
 
         banks_list_view.apply {
             layoutManager = LinearLayoutManager(context)

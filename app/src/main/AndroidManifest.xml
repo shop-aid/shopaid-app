@@ -37,11 +37,6 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".ui.activity.IbanActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
-        <activity
             android:name=".ui.activity.CharityActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>

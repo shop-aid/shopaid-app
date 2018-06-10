@@ -11,7 +11,10 @@ import android.view.View
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.observable.ObservableResult
 import com.mobile.shopaid.data.response.UserResponseModel
+import com.mobile.shopaid.extensions.animateView
+import com.mobile.shopaid.extensions.getFadeInAnimator
 import com.mobile.shopaid.extensions.showError
+import com.mobile.shopaid.extensions.waitForView
 import com.mobile.shopaid.ui.fragment.BalanceDetailFragment
 import com.mobile.shopaid.ui.fragment.BalanceOverviewFragment
 import com.mobile.shopaid.ui.viewmodel.impl.BalanceViewModel
@@ -24,9 +27,11 @@ class BalanceActivity : BaseActivity() {
 
     companion object {
 
+        const val EXTRA_SHOW_BALANCE = "extra_show_balance"
+        private const val DELAY_ANIMATION = 1500L
+
         fun getStartIntent(context: Context): Intent {
             return Intent(context, BalanceActivity::class.java)
-
         }
     }
 
@@ -60,6 +65,10 @@ class BalanceActivity : BaseActivity() {
     }
 
     private fun populateUI(userModel: UserResponseModel) {
+        root.waitForView {
+            animateView(getFadeInAnimator(DELAY_ANIMATION))
+        }
+
         CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
 

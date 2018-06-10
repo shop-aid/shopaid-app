@@ -8,9 +8,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.mobile.shopaid.R
 import com.mobile.shopaid.data.listener.FragmentItemToggleListener
-import com.mobile.shopaid.extensions.animateView
-import com.mobile.shopaid.extensions.getSlideInYAnimator
-import com.mobile.shopaid.extensions.getSlideOutYAnimator
+import com.mobile.shopaid.extensions.*
 import com.mobile.shopaid.ui.fragment.CausesListFragment
 import com.mobile.shopaid.ui.fragment.ProjectsListFragment
 import kotlinx.android.synthetic.main.charity_activity.*
@@ -19,14 +17,18 @@ class CharityActivity : BaseActivity(), FragmentItemToggleListener {
 
     companion object {
         private const val DELAY_ANIMATION = 100L
+        private const val DELAY_ROOT_ANIMATION = 1000L
     }
 
     private var isCounterShown = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.charity_activity)
+
+        root.waitForView {
+            animateView(getFadeInAnimator(DELAY_ROOT_ANIMATION))
+        }
 
         cause_viewpager.adapter = CausePagerAdapter(supportFragmentManager)
         cause_sliding_tabs.setupWithViewPager(cause_viewpager)
