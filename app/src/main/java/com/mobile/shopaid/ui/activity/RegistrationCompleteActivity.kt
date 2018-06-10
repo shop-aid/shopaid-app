@@ -13,7 +13,7 @@ class RegistrationCompleteActivity : BaseActivity() {
         setContentView(R.layout.registration_complete_activity)
 
         Handler().postDelayed({
-            startActivity(BalanceActivity.getStartIntent(this, false))
+            startActivity(BalanceActivity.getStartIntent(this))
         }, 3000)
 
     }

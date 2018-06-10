@@ -14,7 +14,7 @@ class CredentialsActivity : AppCompatActivity() {
         setContentView(R.layout.credentials_activity)
 
         credentials_next.setOnClickListener({
-            val intent = BalanceActivity.getStartIntent(this, true)
+            val intent = BalanceActivity.getStartIntent(this)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         })

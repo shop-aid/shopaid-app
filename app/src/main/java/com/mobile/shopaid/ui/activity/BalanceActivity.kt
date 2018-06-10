@@ -24,12 +24,9 @@ class BalanceActivity : BaseActivity() {
 
     companion object {
 
-        const val EXTRA_SHOW_BALANCE = "extra_show_balance"
+        fun getStartIntent(context: Context): Intent {
+            return Intent(context, BalanceActivity::class.java)
 
-        fun getStartIntent(context: Context, showBalance: Boolean): Intent {
-            val intent = Intent(context, BalanceActivity::class.java)
-            intent.putExtra(EXTRA_SHOW_BALANCE, showBalance)
-            return intent
         }
     }
 
@@ -39,17 +36,10 @@ class BalanceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (intent.getBooleanExtra(EXTRA_SHOW_BALANCE, false)) {
-            setContentView(R.layout.balance_activity)
-            initObservers()
-            balanceViewModel.fetchUser()
-        } else {
-            setContentView(R.layout.balance_empty_state)
-            balance_empty_state_selectbank.setOnClickListener({
-                startActivity(Intent(this, SelectBankActivity::class.java))
-            })
-        }
+        setContentView(R.layout.balance_activity)
+        balance_header.setOnClickListener({ startActivity(Intent(this, SelectBankActivity::class.java)) })
+        initObservers()
+        balanceViewModel.fetchUser()
     }
 
     private fun initObservers() {
