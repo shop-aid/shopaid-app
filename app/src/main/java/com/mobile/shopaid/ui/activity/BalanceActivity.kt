@@ -65,9 +65,9 @@ class BalanceActivity : BaseActivity() {
     }
 
     private fun populateUI(userModel: UserResponseModel) {
-        root.waitForView {
-            animateView(getFadeInAnimator(DELAY_ANIMATION))
-        }
+//        root.waitForView {
+//            animateView(getFadeInAnimator(DELAY_ANIMATION))
+//        }
 
         CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
