@@ -17,7 +17,6 @@ import com.mobile.shopaid.data.response.UserResponseModel
 import com.mobile.shopaid.extensions.showError
 import com.mobile.shopaid.ui.viewmodel.impl.BalanceViewModel
 import kotlinx.android.synthetic.main.balance_detail_fragment.*
-import kotlinx.android.synthetic.main.balance_overview_fragment.*
 import kotlinx.android.synthetic.main.balance_partner_breakdown_listrow.view.*
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
@@ -56,7 +55,8 @@ class BalanceDetailFragment : Fragment() {
         }
         val dividerItemDecoration = DividerItemDecoration(activity,
                 (balance_detail_recyclerview.layoutManager as LinearLayoutManager).orientation)
-        balance_detail_recyclerview.addItemDecoration(dividerItemDecoration)
+        if (balance_detail_recyclerview.itemDecorationCount == 0)
+            balance_detail_recyclerview.addItemDecoration(dividerItemDecoration)
     }
 
 

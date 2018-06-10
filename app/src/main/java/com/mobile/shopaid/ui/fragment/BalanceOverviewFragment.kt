@@ -82,7 +82,8 @@ class BalanceOverviewFragment : Fragment() {
         }
         val dividerItemDecoration = DividerItemDecoration(activity,
                 (balance_overview_recyclerview.layoutManager as LinearLayoutManager).orientation)
-        balance_overview_recyclerview.addItemDecoration(dividerItemDecoration)
+        if (balance_overview_recyclerview.itemDecorationCount == 0)
+            balance_overview_recyclerview.addItemDecoration(dividerItemDecoration)
     }
 
     class CauseBreakdownAdapter(private val causeBreakdownList: List<CauseBreakdownReponseModel>) : RecyclerView.Adapter<CauseBreakdownAdapter.ViewHolder>() {
