@@ -79,12 +79,8 @@ h
 8app/src/main/java/com/mobile/shopaid/api/ApiConstants.kt,0/d/0d21e1627c616eaa3aa0054df6ed136ab5f752c0
 ~
 Napp/src/main/java/com/mobile/shopaid/ui/viewmodel/ProjectsViewModelContract.kt,0/3/03a29d7131fcb9a7f4efd58722a594b327f29645
-w
-Gapp/src/main/java/com/mobile/shopaid/ui/viewmodel/ProvidersViewModel.kt,4/3/43d8cc7bb6f57ec4418bf8e6b9f22eb665514890
 
 Oapp/src/main/java/com/mobile/shopaid/ui/viewmodel/ProvidersViewModelContract.kt,1/a/1a73e217b6ff55e6d035b4cb9b9c40c7d6c5a4c4
-v
-Fapp/src/main/java/com/mobile/shopaid/ui/viewmodel/ProjectsViewModel.kt,c/2/c287b1fa44c938f287cbd18c6c7543728fae42c7
 ~
 Napp/src/main/java/com/mobile/shopaid/data/repository/impl/ProvidersRepoImpl.kt,f/5/f57a1a4418ed183045c75c3e0ad9a223e3df5c42
 u
@@ -107,3 +103,13 @@ Papp/src/main/java/com/mobile/shopaid/ui/activity/RegistrationCompleteActivity.k
 0app/src/main/res/layout/credentials_activity.xml,5/4/54f6509440106adff76766910400e50d14679dde
 v
 Fapp/src/main/java/com/mobile/shopaid/ui/activity/SelectBankActivity.kt,2/1/211e15c643c2ea2d1145eb9baaf79b8042a2f7c2
+z
+Japp/src/main/java/com/mobile/shopaid/ui/viewmodel/impl/BalanceViewModel.kt,f/d/fd94819d7516017c9c01b745a6f8249cd3c4270b
+w
+Gapp/src/main/java/com/mobile/shopaid/ui/activity/CredentialsActivity.kt,0/2/0291c1fe09e520ad30b7a118da7bc91d37146216
+}
+Mapp/src/main/java/com/mobile/shopaid/data/listener/OnListItemClickListener.kt,e/f/ef4c159eb463fa0b182d49b1e88fff95f4f19222
+_
+/app/src/main/res/layout/balance_empty_state.xml,c/e/cef50e7ecd2b31a57ab6e0b8dbde66918128d817
+c
+3app/src/main/res/layout/balance_detail_fragment.xml,5/f/5fc3167515e91192741bafcf76d2b17b8e27a4f0

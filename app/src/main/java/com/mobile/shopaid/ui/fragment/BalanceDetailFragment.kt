@@ -41,13 +41,13 @@ class BalanceDetailFragment : Fragment() {
     private fun initObservers() {
         balanceViewModel.userObservable.observe(this, Observer<ObservableResult<UserResponseModel>> {
             when (it) {
-                is ObservableResult.Success -> init(it.data)
+                is ObservableResult.Success -> initialize(it.data)
                 is ObservableResult.Error -> showError(it.exception.localizedMessage)
             }
         })
     }
 
-    private fun init(userResponseModel : UserResponseModel) {
+    private fun initialize(userResponseModel : UserResponseModel) {
         balance_detail_recyclerview.apply {
 
             setHasFixedSize(true)
@@ -55,7 +55,7 @@ class BalanceDetailFragment : Fragment() {
             adapter = PartnerBreakdownAdapter(userResponseModel.partner_breakdown)
         }
         val dividerItemDecoration = DividerItemDecoration(activity,
-                (balance_overview_recyclerview.layoutManager as LinearLayoutManager).orientation)
+                (balance_detail_recyclerview.layoutManager as LinearLayoutManager).orientation)
         balance_detail_recyclerview.addItemDecoration(dividerItemDecoration)
     }
 
