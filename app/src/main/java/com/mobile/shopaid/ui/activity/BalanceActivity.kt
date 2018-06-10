@@ -71,7 +71,7 @@ class BalanceActivity : BaseActivity() {
 
         CalligraphyUtils.applyFontToTextView(this, balance_amount, "fonts/avenirnextdemibold.ttf")
         balance_viewpager.adapter = BalanceViewPager(supportFragmentManager)
-
+        balance_viewpager.adapter?.notifyDataSetChanged()
         balance_amount.text = userModel.charity_balance
         balannce_sliding_tabs.setupWithViewPager(balance_viewpager)
 

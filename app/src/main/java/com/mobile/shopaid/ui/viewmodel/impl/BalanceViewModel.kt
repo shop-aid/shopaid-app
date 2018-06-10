@@ -42,10 +42,11 @@ class BalanceViewModel(private val userRepo: UserRepo) : ViewModel(), BalanceVie
 
     private fun fetchUsersInternal() {
         val repoData = userRepo.fetchUser()
+        userObservable.removeSource(repoData)
         userObservable.addSource(repoData) {
             loadingObservable.value = false
             userObservable.value = it
-            userObservable.removeSource(repoData)
+//            userObservable.removeSource(repoData)
         }
     }
 }
