@@ -49,12 +49,25 @@ class BalanceOverviewFragment : Fragment() {
         CalligraphyUtils.applyFontToTextView(activity, (percentage_row1_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
         CalligraphyUtils.applyFontToTextView(activity, (percentage_row2_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
         CalligraphyUtils.applyFontToTextView(activity, (percentage_row3_container.findViewById(R.id.balance_percentage_row_percentage)), "fonts/avenirnextdemibold.ttf")
-        (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[0].percentage.toString() + "%"
-        (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[1].percentage.toString() + "%"
-        (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[2].percentage.toString() + "%"
-        (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[0].name
-        (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[1].name
-        (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
+
+        if (userResponseModel.cause_breakdown.isNotEmpty()) {
+            (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[0].percentage.toString() + "%"
+            (percentage_row1_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[0].name
+        }
+        if (userResponseModel.cause_breakdown.size > 1) {
+            (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[1].percentage.toString() + "%"
+            (percentage_row2_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[1].name
+        }
+        if (userResponseModel.cause_breakdown.size > 2) {
+            (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_percentage)).text = userResponseModel.cause_breakdown[2].percentage.toString() + "%"
+            (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
+        }
+
+        if (userResponseModel.charity_balance == "€0")
+            balance_graph.visibility = View.GONE
+        else
+            balance_graph.visibility = View.VISIBLE
+
         CalligraphyUtils.applyFontToTextView(activity, balance_overview_charity_label, "fonts/avenirnextdemibold.ttf")
 
         balance_overview_recyclerview.apply {
