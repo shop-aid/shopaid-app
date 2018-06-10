@@ -63,10 +63,14 @@ class BalanceOverviewFragment : Fragment() {
             (percentage_row3_container.findViewById<TextView>(R.id.balance_percentage_row_cause)).text = userResponseModel.cause_breakdown[2].name
         }
 
-        if (userResponseModel.charity_balance == "€0")
+        if (userResponseModel.charity_balance == "€0") {
             balance_graph.visibility = View.GONE
-        else
+            piechart.setImageResource(R.drawable.emptypiechart)
+        } else {
             balance_graph.visibility = View.VISIBLE
+            piechart.setImageResource(R.drawable.piechart)
+        }
+
 
         CalligraphyUtils.applyFontToTextView(activity, balance_overview_charity_label, "fonts/avenirnextdemibold.ttf")
 
