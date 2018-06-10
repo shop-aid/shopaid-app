@@ -71,7 +71,6 @@ class BalanceOverviewFragment : Fragment() {
             piechart.setImageResource(R.drawable.piechart)
         }
 
-
         CalligraphyUtils.applyFontToTextView(activity, balance_overview_charity_label, "fonts/avenirnextdemibold.ttf")
 
         balance_overview_recyclerview.apply {
